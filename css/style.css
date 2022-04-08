@@ -1,0 +1,231 @@
+:root {
+    --color-main: 31, 115, 226;
+}
+
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.accent-color {
+    color: rgba(var(--color-main));
+}
+
+
+.navbar-brand {
+    display: inline-flex;
+    padding: 4px;
+    background: rgb(220 53 69 / 20%);
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.navbar-disclaimer {
+    font-size: .6rem;
+}
+
+/* scroll bar */
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #b0b4bb;
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #9d9fa3;
+}
+
+.btn-new {
+    color: rgba(var(--color-main)) !important;
+    transition: 0.3s ease all;
+}
+
+.btn-new:hover {
+    background-color: rgba(var(--color-main), .2);
+}
+
+
+
+.sidepanel {
+    height: 100vh;
+    width: 22vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: white;
+    border-left: solid 2px #dee2e6;
+    z-index: 9999;
+}
+
+.sidepanel-scroll {
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
+}
+
+@media screen and (max-width: 1199px) {
+    .sidepanel {
+        width: 100vw;
+    }
+}
+
+#main-tabs .nav-link {
+    color: #777;
+}
+
+#main-tabs .nav-link:hover {
+    color: rgba(var(--color-main));
+    background-color: rgba(var(--color-main), .2);
+    border-radius: 6px;
+}
+
+
+#main-tabs .nav-link.active {
+    color: rgba(var(--color-main));
+    border-bottom: 3px solid;
+    font-weight: 500;
+}
+
+#doc-title-container{
+    background-color: #f5f6f7;
+}
+
+#card-container{
+    background-color: #f5f6f7;
+    height: 100%;
+}
+
+#card-container .card-name {
+    color: rgba(var(--color-main));
+    font-weight: 500;
+    cursor: pointer;
+}
+
+#card-container .card-details {
+    font-size: .9rem;
+}
+
+#card-container .card:hover{
+    background-color: rgba(var(--color-main), .05);
+}
+
+#bread-crumb .link-primary{
+    font-size: .8rem;
+}
+
+#quick-nav-button{
+    position: absolute;
+    bottom: 40px;
+    right: 125px;
+    z-index: 99999;
+}
+
+#quick-nav-panel{
+    position: absolute;
+    bottom: 80px;
+    right: 35px;
+    width: 18vw;
+    border: 1px solid #dee;
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 2px 4px 18px #ddd;
+    z-index: 99999;
+    overflow: hidden;
+}
+
+.bd-links {
+    overflow: auto;
+    height: 74vh;
+    font-weight: 500;
+  }
+  
+  /* .bd-links {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0.5rem;
+    width: 12vw;
+    overflow-y: auto;
+  } */
+  
+  @media (max-width:1600px) {
+      .bd-links{
+          width: 18vw;
+      }  
+  }
+  
+  @media (max-width:1024px) {
+    #quick-nav-panel{
+      position: absolute;
+      height: 100vh;
+    }
+      .bd-links{
+          width: 100vw;
+      }  
+  }
+  
+  /* @media (max-width: 767.98px) {
+      .bd-links>ul {
+          padding:1.5rem .75rem;
+          background-color: #f8f9fa;
+          border-bottom: 1px solid #e9ecef
+      }
+  } */
+  
+  .bd-links a {
+    padding: 0.1875rem 0.5rem;
+    margin-top: 0.125rem;
+    margin-left: 1.25rem;
+    color: rgba(0, 0, 0, 0.65);
+    text-decoration: none;
+  }
+  
+  .bd-links a:hover,
+  .bd-links a:focus {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(13, 110, 253, 0.1);
+  }
+  
+  .bd-links .btn {
+    padding: 0.25rem 0.5rem;
+    font-weight: 500;
+    color: rgba(0, 0, 0, 0.65);
+    background-color: transparent;
+    border: 0;
+  }
+  
+  .bd-links .btn:hover,
+  .bd-links .btn:focus {
+    color: rgba(0, 0, 0, 0.85);
+    background-color: rgba(13, 110, 253, 0.1);
+  }
+  
+  .bd-links .btn:focus {
+    box-shadow: 0 0 0 1px rgba(13, 110, 253, 0.2);
+  }
+  
+  .bd-links .btn::before {
+    width: 1.25em;
+    line-height: 0;
+    content: url("../img/download.svg");
+    transition: transform 0.35s ease;
+    transform-origin: 0.5em 50%;
+  }
+  
+  .bd-links .btn[aria-expanded="true"] {
+    color: rgba(0, 0, 0, 0.85);
+  }
+  
+  .bd-links .btn[aria-expanded="true"]::before {
+    transform: rotate(90deg);
+  }
+  
+  .bd-links .active {
+    background-color: rgba(13, 110, 253, 0.1);
+  }
