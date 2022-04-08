@@ -70,6 +70,12 @@ body {
     overflow-y: scroll;
 }
 
+@media screen and (max-width: 1600px) {
+    .sidepanel {
+        width: 30vw;
+    }
+}
+
 @media screen and (max-width: 1199px) {
     .sidepanel {
         width: 100vw;
@@ -155,18 +161,24 @@ body {
   } */
   
   @media (max-width:1600px) {
+      #quick-nav-panel{
+          width: 25vw;
+      }
       .bd-links{
-          width: 18vw;
+          width: 20vw;
       }  
   }
   
   @media (max-width:1024px) {
     #quick-nav-panel{
       position: absolute;
-      height: 100vh;
+      width: 90vw;
+      bottom: 0;
+    right: 0;
+
     }
       .bd-links{
-          width: 100vw;
+          width: 100%;
       }  
   }
   
