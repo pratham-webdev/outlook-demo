@@ -82,6 +82,8 @@ let mattersArr = matters.map(el => cardTemplate(el)).join("");
 
 function createMatters(){
     $('#doc-title-container').empty();
+    $('#quick-nav-panel').removeClass('show');
+    $('#quick-nav-button').hide();
     $('#card-container').empty();
     $('#card-container').append(mattersArr);
     folderLevel = 0;

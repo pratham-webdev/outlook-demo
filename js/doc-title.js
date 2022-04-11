@@ -9,6 +9,7 @@ const documentTitle = `  <div id="doc-title" class="d-flex align-items-center">
 
 function createDocumentTitle() {
     $('#doc-title-container').append(documentTitle);
+
 }
 
 function breadLink(name) {

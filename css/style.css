@@ -233,6 +233,7 @@ body {
   .bd-links .hover{
     padding: 0.25rem 0.5rem;
     font-weight: 500;
+    font-size: .85rem;
     color: rgba(0, 0, 0, 0.65);
     background-color: transparent;
     border: 0;
@@ -246,6 +247,10 @@ body {
   
   .bd-links .hover:focus {
     box-shadow: 0 0 0 1px rgba(13, 110, 253, 0.2);
+  }
+
+  .bd-links .btn{
+      padding: .375rem;
   }
   
   .bd-links .btn::before {

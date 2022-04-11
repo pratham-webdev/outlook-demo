@@ -341,7 +341,7 @@ function leftNavTemplate(arr) {
 
 function createNavListTemplate(el) {
     return `<div class="mb-2">
-    <div class="hover d-flex align-items-center rounded w-100 "><button class="btn ${el.parentClass}" data-bs-toggle="collapse" aria-expanded=${el.aria} data-bs-target="#quickNav-${el.id}"></button><div class="dblname ${el.level}">${el.name}</div></div>
+    <div class="hover d-flex align-items-center rounded w-100 "><button class="btn ${el.parentClass}" data-bs-toggle="collapse" aria-expanded=${el.aria} data-bs-target="#quickNav-${el.id}"></button><div class="dblname ${el.level}"><i class="fa-solid fa-folder me-2 accent-color"></i>${el.name}</div></div>
     <div id="quickNav-${el.id}" class="collapse ${el.childClass} ${el.padding}">
     ${el.items ? createNavList(el.items) : ''}
     ${el.files == true ? createNavListItems(quickFiles) : ''}

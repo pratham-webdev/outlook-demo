@@ -20,5 +20,6 @@ function createMattersDetails(){
     folderLevel == 0 ? createDocumentTitle() : '';
     $('#card-container').empty();
     $('#card-container').append(mattersDetailsArr);
+    $('#quick-nav-button').show();
     folderLevel = 1;
 }

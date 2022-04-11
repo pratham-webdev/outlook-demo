@@ -3,25 +3,29 @@ const level3 = [
         id:1,
         name:'meeting notes.txt',
         icon:'fa-file-lines',
-        docs:false
+        docs:false,
+        func:'JavaScript:void(0);'
     },
     {
         id:2,
         name:'recap.docx',
         icon:'fa-file-word',
-        docs:false
+        docs:false,
+        func:'JavaScript:void(0);'
     },
     {
         id:3,
         name:'deck.ppt',
         icon:'fa-file-powerpoint',
-        docs:false
+        docs:false,
+        func:'JavaScript:void(0);'
     },
     {
         id:4,
         name:'invoices.xlsx',
         icon:'fa-file-excel',
-        docs:false
+        docs:false,
+        func:'JavaScript:void(0);'
     }
 ]
 
