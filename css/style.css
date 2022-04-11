@@ -154,14 +154,14 @@ body {
 
 #quick-nav-button{
     position: absolute;
-    bottom: 40px;
+    bottom: 20px;
     right: 125px;
     z-index: 99999;
 }
 
 #quick-nav-panel{
     position: absolute;
-    bottom: 80px;
+    bottom: 60px;
     right: 35px;
     width: 18vw;
     border: 1px solid #dee;
