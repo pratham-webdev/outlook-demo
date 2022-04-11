@@ -134,17 +134,17 @@ body {
     height: 100%;
 }
 
-#card-container .card-name {
+.card-name {
     color: rgba(var(--color-main));
     font-weight: 500;
     cursor: pointer;
 }
 
-#card-container .card-details {
+.card-details {
     font-size: .9rem;
 }
 
-#card-container .card:hover{
+.card:hover{
     background-color: rgba(var(--color-main), .05);
 }
 
@@ -281,4 +281,11 @@ body {
   .btn-quick{
       border-radius: 60px;
       box-shadow: 2px 4px 18px #ddd;
+  }
+
+  .doc-title-header:hover{
+      cursor: pointer;
+      background-color: rgba(13, 110, 253, 0.1);
+      border-radius: 6px;
+      color:rgba(var(--color-main))
   }
