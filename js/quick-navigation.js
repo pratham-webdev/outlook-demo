@@ -364,7 +364,7 @@ function createNavList(arr) {
 
 $('#quick-nav-panel').append(leftNavTemplate(quickNavItems));
 
-$('.dblname').on('dblclick', function(){
+$('.dblname').on('click', function(){
     console.log('fired')
     folderLevel = 0; 
     $('#doc-title,#bread-crumb').remove(); 

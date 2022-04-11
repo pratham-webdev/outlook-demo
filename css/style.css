@@ -86,7 +86,7 @@ body {
     color: #777;
 }
 
-#main-tabs .nav-link:hover {
+#main-tabs .nav-link:hover:hover:not(.active) {
     color: rgba(var(--color-main));
     background-color: rgba(var(--color-main), .2);
     border-radius: 6px;
@@ -97,6 +97,32 @@ body {
     color: rgba(var(--color-main));
     border-bottom: 3px solid;
     font-weight: 500;
+}
+
+#sub-tabs {
+    font-size: .85rem;
+    background-color: #f5f6f7;
+}
+
+#sub-tabs .nav-link {
+    padding: .2rem .6rem;
+    border-radius:60px;
+}
+
+#sub-tabs .nav-link:hover:not(.active){
+    background-color: rgba(var(--color-main), .2);
+
+}
+
+#sub-tabs .selection{
+    font-size: .85rem;
+    height: 2rem;
+    background-color: transparent;
+    border: none;
+    background-position: right center;
+    padding-right: 1.25rem;
+    width:auto;
+
 }
 
 #doc-title-container{
@@ -148,7 +174,7 @@ body {
 
 .bd-links {
     overflow: auto;
-    height: 74vh;
+    height: 55vh;
     font-weight: 500;
   }
   
@@ -245,4 +271,9 @@ body {
   
   .bd-links .active {
     background-color: rgba(13, 110, 253, 0.1);
+  }
+
+  .btn-quick{
+      border-radius: 60px;
+      box-shadow: 2px 4px 18px #ddd;
   }

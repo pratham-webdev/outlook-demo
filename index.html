@@ -45,14 +45,55 @@
                     </li>
                 </ul>
             </div>
-            <div id="doc-title-container" class="pt-3">
+            <div id="search-bar" class="p-3" >
+                <form class="d-flex" style="height: 3vh;">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-sm btn-new"><i class="fs-5 fa-solid fa-sliders"></i></button>
+                  </form>
+            </div>
+            <div id="sub-tabs" class="px-3 pt-2">
+                <ul class="nav nav-pills">
+                    <li class="nav-item">
+                      <a class="nav-link active" aria-current="page" href="#">Disputes</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                      <a class="nav-link" href="#">All Matters</a>
+                    </li>
+                    <li class="nav-item ms-2">
+                      <a class="nav-link" href="#">My Assigned</a>
+                    </li>
+                    </ul>
+                    <div class="d-flex justify-content-between align-items-center">
+                    <div class="py-2 d-flex align-items-center">
+                        <select class="form-select selection" aria-label="Default select example">
+                            <option selected>10</option>
+                            <option value="1">10</option>
+                            <option value="2">25</option>
+                            <option value="3">50</option>
+                            <option value="3">100</option>
+                            <option value="3">200</option>
+                          </select>
+                          <span>/120</span>
+                    </div>
+                    <div class="py-2 d-flex align-items-center">
+                        <span class="text-muted">Sort By:</span>
+                        <select class="form-select selection" aria-label="Default select example">
+                            <option selected>Modified On</option>
+                            <option value="1">Latest</option>
+                            <option value="2">Oldest</option>
+                          </select>
+                    <button class="btn btn-sm btn-new"><i class="fs- fa-solid fa-arrow-down-wide-short"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div id="doc-title-container">
             </div>
             <div class="sidepanel-scroll">
                 <div id="card-container" class="px-3 pt-2">
                 </div>
             </div>
     <div id="quick-nav-panel" class="collapse"></div>
-    <button id="quick-nav-button" type="button" class="btn btn-primary" data-bs-toggle="collapse" data-bs-target="#quick-nav-panel">Quick Navigation</button>
+    <button id="quick-nav-button" type="button" class="btn btn-primary btn-quick" data-bs-toggle="collapse" data-bs-target="#quick-nav-panel">Quick Navigation</button>
         </div>
     </div>
 
