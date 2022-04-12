@@ -23,11 +23,11 @@ const bodyFiles = [
 ]
 
 function bodyFilesTemplate(el){
-    return  `<div class="card m-2">
+    return  `<div class="card m-2" draggable="true" ondragstart="drag(event)" value="${el.icon}" name="${el.name}">
       <div class="p-2 d-flex">
           <div class="icon"><i class="fs-3 fa-solid ${el.icon} accent-color opacity-75"></i></div>
           <div class="card-details ps-3">
-              <div class="card-name" draggable="true" ondragstart="drag(event)" value="${el.icon}" onclick="${el.func};">${el.name}</div>
+              <div class="card-name" onclick="${el.func};">${el.name}</div>
               <div class="text-muted">
                   <span>Modified by John Smith</span><span class="ms-2">•</span><span
                       class="ms-2">3/22/21 1:02 PM </span>

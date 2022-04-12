@@ -66,7 +66,7 @@ body {
 }
 
 .sidepanel-scroll {
-    height: calc(100vh - 60px);
+    height: calc(100vh - 240px);
     overflow-y: scroll;
 }
 
@@ -131,7 +131,9 @@ body {
 
 #card-container{
     background-color: #f5f6f7;
-    height: 100%;
+    padding-bottom: 4rem;
+    min-height: 100%;
+    max-height: max-content;
 }
 
 .card-name {

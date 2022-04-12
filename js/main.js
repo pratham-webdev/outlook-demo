@@ -48,7 +48,7 @@ function allowDrop(ev) {
   
   function drag(ev) {
       let data = {
-          name:$(ev.target).text(),
+          name:$(ev.target).attr('name'),
           value:$(ev.target).attr('value')
       }
     ev.dataTransfer.setData("text",JSON.stringify(data));
