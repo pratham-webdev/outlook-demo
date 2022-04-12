@@ -4,28 +4,28 @@ const level3 = [
         name:'meeting notes.txt',
         icon:'fa-file-lines',
         docs:false,
-        func:'JavaScript:void(0);'
+        func:'javaScript:void(0);'
     },
     {
         id:2,
         name:'recap.docx',
         icon:'fa-file-word',
         docs:false,
-        func:'JavaScript:void(0);'
+        func:'javaScript:void(0);'
     },
     {
         id:3,
         name:'deck.ppt',
         icon:'fa-file-powerpoint',
         docs:false,
-        func:'JavaScript:void(0);'
+        func:'javaScript:void(0);'
     },
     {
         id:4,
         name:'invoices.xlsx',
         icon:'fa-file-excel',
         docs:false,
-        func:'JavaScript:void(0);'
+        func:'javaScript:void(0);'
     }
 ]
 

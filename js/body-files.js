@@ -4,21 +4,21 @@ const bodyFiles = [
         name:'meeting notes.txt',
         icon:'fa-file-lines',
         docs:false,
-        func:'JavaScript:void(0);'
+        func:'javaScript:void(0);'
     },
     {
         id:'bf-2',
         name:'recap.docx',
         icon:'fa-file-word',
         docs:false,
-        func:'JavaScript:void(0);'
+        func:'javaScript:void(0);'
     },
     {
         id:'bf-3',
         name:'deck.ppt',
         icon:'fa-file-powerpoint',
         docs:false,
-        func:'JavaScript:void(0);'
+        func:'javaScript:void(0);'
     },
 ]
 
@@ -27,7 +27,7 @@ function bodyFilesTemplate(el){
       <div class="p-2 d-flex">
           <div class="icon"><i class="fs-3 fa-solid ${el.icon} accent-color opacity-75"></i></div>
           <div class="card-details ps-3">
-              <div class="card-name" onClick="docMove = true; ${el.func}; ">${el.name}</div>
+              <div class="card-name" draggable="true" ondragstart="drag(event)" value="${el.icon}" onclick="${el.func};">${el.name}</div>
               <div class="text-muted">
                   <span>Modified by John Smith</span><span class="ms-2">•</span><span
                       class="ms-2">3/22/21 1:02 PM </span>

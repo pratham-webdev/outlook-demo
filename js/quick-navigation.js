@@ -313,24 +313,28 @@ const quickFiles = [
         name: 'meeting notes.txt',
         icon: 'fa-file-lines',
         docs: false,
+        func:'javaScript:void(0);'
     },
     {
         id: 2,
         name: 'recap.docx',
         icon: 'fa-file-word',
         docs: false,
+        func:'javaScript:void(0);'
     },
     {
         id: 3,
         name: 'deck.ppt',
         icon: 'fa-file-powerpoint',
         docs: false,
+        func:'javaScript:void(0);'
     },
     {
         id: 4,
         name: 'invoices.xlsx',
         icon: 'fa-file-excel',
         docs: false,
+        func:'javaScript:void(0);'
     }
 ]
 
@@ -351,7 +355,7 @@ function createNavListTemplate(el) {
 
 function createNavListItems(items) {
     let tempItemArr = items.map((item) => {
-        return `<a href="" class="d-block fw-normal pb-1 small rounded"><i class="fa-solid ${item.icon} accent-color me-2"></i>${item.name}</a>`;
+        return `<a href="#" onclick="${item.func}" class="d-block fw-normal pb-1 small rounded"><i class="fa-solid ${item.icon} accent-color me-2"></i>${item.name}</a>`;
     });
     return tempItemArr.join("");
 }

@@ -62,7 +62,7 @@ body {
     right: 0;
     background-color: white;
     border-left: solid 2px #dee2e6;
-    z-index: 9999;
+    z-index: 999;
 }
 
 .sidepanel-scroll {
@@ -148,6 +148,13 @@ body {
     background-color: rgba(var(--color-main), .05);
 }
 
+.doc-title-header:hover{
+    cursor: pointer;
+    background-color: rgba(13, 110, 253, 0.1);
+    border-radius: 6px;
+    color:rgba(var(--color-main))
+}
+
 #bread-crumb .link-primary{
     font-size: .8rem;
 }
@@ -155,20 +162,35 @@ body {
 #quick-nav-button{
     position: absolute;
     bottom: 20px;
-    right: 125px;
-    z-index: 99999;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    z-index: 1500;
 }
 
-#quick-nav-panel{
+#plus-options{
     position: absolute;
-    bottom: 60px;
-    right: 35px;
+    right: 20px;
+}
+
+#plus-options .dropdown-toggle::after {
+   display: none;
+}
+
+#plus-options .dropdown-menu {
+    width: 10vw;
+    border: 1px solid #dee;
+    box-shadow: 2px 4px 18px #ddd;
+    inset: auto 0px 6px auto !important;
+    border-radius: 12px;
+ }
+
+#quick-nav-panel{
     width: 18vw;
     border: 1px solid #dee;
     background: #fff;
-    border-radius: 18px;
+    border-radius: 12px;
     box-shadow: 2px 4px 18px #ddd;
-    z-index: 99999;
     overflow: hidden;
 }
 
@@ -283,9 +305,24 @@ body {
       box-shadow: 2px 4px 18px #ddd;
   }
 
-  .doc-title-header:hover{
-      cursor: pointer;
-      background-color: rgba(13, 110, 253, 0.1);
-      border-radius: 6px;
-      color:rgba(var(--color-main))
+  .litebox-panel{
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index:9999;
+      background-color: rgba(0, 0, 0, 0.65);
+      backdrop-filter:blur(4px);
+      height: 100%;
+      width: 100%;   
   }
+
+  .litebox-panel .litebox{
+      margin-top: auto;
+    border: 1px solid #dee;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 2px 4px 18px rgba(255,255,255,0.2);
+  }
+
+  
