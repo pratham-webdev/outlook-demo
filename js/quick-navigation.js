@@ -6,7 +6,7 @@ const quickNavItems = [{
     items: [
         {
             id: 'd-1',
-            name: 'Emails',
+            name: 'Emails are nice to have here, will this be too long than this is wow let us do this wow wow wow wo',
             padding: 'ps-4',
             level: `level1`,
             parentClass: "",
@@ -345,7 +345,7 @@ function leftNavTemplate(arr) {
 
 function createNavListTemplate(el) {
     return `<div class="mb-2">
-    <div class="hover d-flex align-items-center rounded w-100 "><button class="btn ${el.parentClass}" data-bs-toggle="collapse" aria-expanded=${el.aria} data-bs-target="#quickNav-${el.id}"></button><div class="dblname ${el.level}"><i class="fa-solid fa-folder me-2 accent-color"></i>${el.name}</div></div>
+    <div class="hover d-flex align-items-center rounded w-100 "><button class="btn ${el.parentClass}" data-bs-toggle="collapse" aria-expanded=${el.aria} data-bs-target="#quickNav-${el.id}"></button><div class="dblname ${el.level}" title="${el.name}"><i class="fa-solid fa-folder me-2 accent-color"></i>${el.name.length < 30 ? el.name : (el.name.substring(0,30)+"...")}</div></div>
     <div id="quickNav-${el.id}" class="collapse ${el.childClass} ${el.padding}">
     ${el.items ? createNavList(el.items) : ''}
     ${el.files == true ? createNavListItems(quickFiles) : ''}
@@ -355,7 +355,7 @@ function createNavListTemplate(el) {
 
 function createNavListItems(items) {
     let tempItemArr = items.map((item) => {
-        return `<a href="#" onclick="${item.func}" class="d-block fw-normal pb-1 small rounded"><i class="fa-solid ${item.icon} accent-color me-2"></i>${item.name}</a>`;
+        return `<a href="#" onclick="${item.func}" class="d-block fw-normal pb-1 small rounded" title="${item.name}"><i class="fa-solid ${item.icon} accent-color me-2"></i>${item.name.length < 50 ? item.name : (item.name.substring(0,50)+"...")}</a>`;
     });
     return tempItemArr.join("");
 }
@@ -375,12 +375,12 @@ $('.dblname').on('click', function(){
     createMattersDetails(); 
     createLevel1('Documents');
     if($(this).hasClass('level1')){
-        let text = $(this).text();
+        let text = $(this).attr('title');
         createLevel2(text);
     }
     else if($(this).hasClass('level2')){
-        let text = $(this).text();
-        let parentText = $(this).parents('.collapse').prev('.hover').find('.level1').text();
+        let text = $(this).attr('title');
+        let parentText = $(this).parents('.collapse').prev('.hover').find('.level1').attr('title');
         createLevel2(parentText);
         createLevel3(text);
     }

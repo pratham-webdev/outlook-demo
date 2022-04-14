@@ -1,10 +1,10 @@
 const level1 = [
     {
         id:1,
-        name:'Emails',
+        name:'Emails are nice to have here, will this be too long than this is wow let us do this wow wow wow wo',
         icon:'fa-folder',
         docs:false,
-        func:`createLevel2('Emails')`
+        func:`createLevel2('Emails are nice to have here, will this be too long than this is wow let us do this wow wow wow wo')`
     },
     {
         id:2,
