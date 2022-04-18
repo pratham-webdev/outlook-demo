@@ -147,7 +147,11 @@ body {
 }
 
 .card:hover{
-    background-color: rgba(var(--color-main), .05);
+    /* background-color: rgba(var(--color-main), .02); */
+    border: 1px solid rgba(var(--color-main), 1) !important;
+    box-shadow: 2px 4px 18px #ddd;
+    /* transform: translate(0,-2px); */
+
 }
 
 .doc-title-header:hover{
@@ -179,12 +183,17 @@ body {
    display: none;
 }
 
-#plus-options .dropdown-menu {
-    width: 10vw;
+.dropdown-menu {
+    width: max-content;
     border: 1px solid #dee;
     box-shadow: 2px 4px 18px #ddd;
-    inset: auto 0px 6px auto !important;
+    /* inset: auto 0px 6px auto !important; */
+    transform: none !important;
     border-radius: 12px;
+ }
+
+ .dropdown-menu li>button{
+     width: -webkit-fill-available;
  }
 
 #quick-nav-panel{

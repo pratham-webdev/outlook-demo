@@ -345,7 +345,7 @@ function leftNavTemplate(arr) {
 
 function createNavListTemplate(el) {
     return `<div class="mb-2">
-    <div class="hover d-flex align-items-center rounded w-100 "><button class="btn ${el.parentClass}" data-bs-toggle="collapse" aria-expanded=${el.aria} data-bs-target="#quickNav-${el.id}"></button><div class="dblname ${el.level}" title="${el.name}"><i class="fa-solid fa-folder me-2 accent-color"></i>${el.name.length < 30 ? el.name : (el.name.substring(0,30)+"...")}</div></div>
+    <div class="hover d-flex align-items-center rounded w-100 "><button class="btn ${el.parentClass}" data-bs-toggle="collapse" aria-expanded=${el.aria} data-bs-target="#quickNav-${el.id}"></button><div class="dblname ${el.level}" title="${el.name}"><i class="fa-solid fa-folder me-2 accent-color"></i>${el.name.length < 20 ? el.name : (el.name.substring(0,20)+"...")}</div></div>
     <div id="quickNav-${el.id}" class="collapse ${el.childClass} ${el.padding}">
     ${el.items ? createNavList(el.items) : ''}
     ${el.files == true ? createNavListItems(quickFiles) : ''}
@@ -386,4 +386,5 @@ $('.dblname').on('click', function(){
     }
     $('.bd-links .active').removeClass('active');
     $(this).parent().addClass('active');
+    $('#quick-nav-panel').removeClass('show');
 })
