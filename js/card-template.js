@@ -1,35 +1,55 @@
+let copyItemsArray = [];
+
+const moreFunctions = {
+    cut: function () {
+        copyItemsArray.push($(this).parents('.card')[0].outerHTML);
+        // $(this).parents('.card')[0].remove();
+        console.log($(this).parents('.card'))
+        $(this).parents('.card').addClass('cut-item');
+
+    },
+    copy: function () {
+        copyItemsArray.push($(this).parents('.card')[0].outerHTML);
+    },
+    paste: function () {
+        $('#card-container').append(copyItemsArray.join(""));
+        copyItemsArray = []; $('.dropdown-menu,.more-options').removeClass("show");
+    }
+}
+
 const moreOptions = [
     {
         id: 1,
         name: 'Upload Files Here',
         icon: 'fa-file-arrow-up',
-        func:`javascript:void(0)`
+        func: `javascript:void(0)`
     },
     {
         id: 2,
         name: 'Create New Sub Folder',
         icon: 'fa-folder-plus',
-        func:`toggleNewFolderLitebox()`
+        func: `toggleNewFolderLitebox()`
     },
     {
         id: 3,
         name: 'Cut',
         icon: 'fa-scissors',
-        func:`javascript:void(0)`
+        func: `moreFunctions.cut.call(this)`
     },
     {
         id: 4,
         name: 'Copy',
         icon: 'fa-copy',
-        func:`javascript:void(0)`
+        func: `moreFunctions.copy.call(this)`
     },
     {
         id: 5,
         name: 'Paste',
         icon: 'fa-clipboard',
-        func:`javascript:void(0)`
+        func: `moreFunctions.paste.call()`
     },
 ]
+
 
 const moreOptionsTemplate = `
 <ul class="dropdown-menu" aria-labelledby="dropdown-more-options">

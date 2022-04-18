@@ -131,7 +131,7 @@ body {
 
 #card-container{
     background-color: #f5f6f7;
-    padding-bottom: 4rem;
+    padding-bottom: 7.225rem;
     min-height: 100%;
     max-height: max-content;
 }
@@ -151,7 +151,11 @@ body {
     border: 1px solid rgba(var(--color-main), 1) !important;
     box-shadow: 2px 4px 18px #ddd;
     /* transform: translate(0,-2px); */
+}
 
+.cut-item{
+    background-color: rgba(var(--color-main), .02);
+    border: 1px dashed rgba(var(--color-main), 2) !important;
 }
 
 .doc-title-header:hover{

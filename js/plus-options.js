@@ -27,7 +27,7 @@ const plusOptions = [
         id: 5,
         name: 'Paste',
         icon: 'fa-clipboard',
-        func:`javascript:void(0)`
+        func:`moreFunctions.paste.call()`
     },
 ]
 
