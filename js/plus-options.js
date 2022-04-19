@@ -15,13 +15,13 @@ const plusOptions = [
         id: 3,
         name: 'Cut',
         icon: 'fa-scissors',
-        func:`javascript:void(0)`
+        func:`moreFunctions.multiCut.call()`
     },
     {
         id: 4,
         name: 'Copy',
         icon: 'fa-copy',
-        func:`javascript:void(0)`
+        func:`moreFunctions.multiCopy.call()`
     },
     {
         id: 5,

@@ -345,7 +345,7 @@ function leftNavTemplate(arr) {
 
 function createNavListTemplate(el) {
     return `<div class="mb-2">
-    <div class="hover d-flex align-items-center rounded w-100 "><button class="btn ${el.parentClass}" data-bs-toggle="collapse" aria-expanded=${el.aria} data-bs-target="#quickNav-${el.id}"></button><div class="dblname ${el.level}" title="${el.name}"><i class="fa-solid fa-folder me-2 accent-color"></i>${el.name.length < 20 ? el.name : (el.name.substring(0,20)+"...")}</div></div>
+    <div class="hover d-flex align-items-center rounded w-100 "><button class="btn ${el.parentClass}" data-bs-toggle="collapse" aria-expanded=${el.aria} data-bs-target="#quickNav-${el.id}"></button><div class="dblname ${el.level} truncate" title="${el.name}"><i class="fa-solid fa-folder me-2 accent-color"></i>${el.name}</div></div>
     <div id="quickNav-${el.id}" class="collapse ${el.childClass} ${el.padding}">
     ${el.items ? createNavList(el.items) : ''}
     ${el.files == true ? createNavListItems(quickFiles) : ''}
@@ -355,7 +355,7 @@ function createNavListTemplate(el) {
 
 function createNavListItems(items) {
     let tempItemArr = items.map((item) => {
-        return `<a href="#" onclick="${item.func}" class="d-block fw-normal pb-1 small rounded" title="${item.name}"><i class="fa-solid ${item.icon} accent-color me-2"></i>${item.name.length < 50 ? item.name : (item.name.substring(0,50)+"...")}</a>`;
+        return `<a href="#" onclick="${item.func}" class="d-block fw-normal pb-1 small rounded truncate" title="${item.name}"><i class="fa-solid ${item.icon} accent-color me-2"></i>${item.name}</a>`;
     });
     return tempItemArr.join("");
 }

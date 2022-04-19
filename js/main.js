@@ -92,3 +92,18 @@ function uploadFile(name){
     $('#card-container').append(tempFileArr);
     folderNumber++;
 }
+
+//ctrl click
+$('#card-container,#body-files').on('click','.card',function(event){
+    if(event.ctrlKey){
+        if($(this).hasClass('card-selected'))
+       {
+        $(this).removeClass('card-selected');
+       } 
+       else{
+        $(this).addClass('card-selected');
+       }
+
+    }
+});
+

@@ -13,7 +13,7 @@ function createDocumentTitle() {
 }
 
 function breadLink(name) {
-    return `<div><a class="link-primary ms-1" href="#" onclick="upDown()" title="${name}">${name.length < 10 ? name : (name.substring(0,10)+"...")}</a><span class="ms-1">/</span></div>`
+    return `<div><a class="link-primary ms-1" href="#" onclick="upDown()" title="${name}">${name.length < 15 ? name : (name.substring(0,15)+"...")}</a><span class="ms-1">/</span></div>`
 }
 
 function createBreadCrumb(name) {

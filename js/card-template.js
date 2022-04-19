@@ -4,7 +4,7 @@ const moreFunctions = {
     cut: function () {
         copyItemsArray.push($(this).parents('.card')[0].outerHTML);
         // $(this).parents('.card')[0].remove();
-        console.log($(this).parents('.card'))
+        // console.log($(this).parents('.card'))
         $(this).parents('.card').addClass('cut-item');
 
     },
@@ -13,7 +13,22 @@ const moreFunctions = {
     },
     paste: function () {
         $('#card-container').append(copyItemsArray.join(""));
-        copyItemsArray = []; $('.dropdown-menu,.more-options').removeClass("show");
+        copyItemsArray = []; 
+        $('.dropdown-menu,.more-options').removeClass("show");
+        $('.card-selected').removeClass('card-selected');
+
+    },
+    multiCut: function(){
+       $('.card-selected').each(function(){
+           copyItemsArray.push($(this)[0].outerHTML)
+       });
+        $('.card-selected').addClass('cut-item');
+        $('.card-selected').removeClass('card-selected');
+   },
+    multiCopy: function(){
+        $('.card-selected').each(function(){
+            copyItemsArray.push($(this)[0].outerHTML)
+        });
     }
 }
 
@@ -69,9 +84,9 @@ function createMoreOptions(el) {
 function cardTemplate(el) {
     return `<div class="card mb-2 border-0 rounded-0">
     <div class="p-2 d-flex justify-content-around">
-        <div class="icon"><i class="fs-3 fa-solid ${el.icon} accent-color opacity-75"></i></div>
+        <div class="icon d-flex"><i class="fa-solid fa-circle-check select-icon"></i><i class="fs-3 fa-solid ${el.icon} accent-color opacity-75"></i></div>
         <div class="card-details ps-3">
-            <div class="card-name" onClick="docMove = true; ${el.func};" title="${el.name}">${el.name.length < 40 ? el.name : (el.name.substring(0, 40) + "...")}</div>
+            <div class="card-name truncate" onClick="docMove = true; ${el.func};" title="${el.name}">${el.name}</div>
             <div class="text-muted">
                 <span>Modified by John Smith</span><span class="ms-2">•</span><span
                     class="ms-2">3/22/21 1:02 PM </span>
@@ -92,3 +107,5 @@ function createDocs() {
         class="ms-2 btn btn-sm btn-new p-0" href="#">Appointments</a>
 </div>`
 }
+
+
