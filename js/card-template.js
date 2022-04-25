@@ -82,11 +82,11 @@ function createMoreOptions(el) {
 
 
 function cardTemplate(el) {
-    return `<div class="card mb-2 border-0 rounded-0">
+    return `<div class="card mb-2 border-0 rounded-0" tabindex="0">
     <div class="p-2 d-flex justify-content-around">
         <div class="icon d-flex"><i class="fa-solid fa-circle-check select-icon"></i><i class="fs-3 fa-solid ${el.icon} accent-color opacity-75"></i></div>
         <div class="card-details ps-3">
-            <div class="card-name truncate" onClick="docMove = true; ${el.func};" title="${el.name}">${el.name}</div>
+            <div class="card-name truncate alt-click" onClick="docMove = true; ${el.func};" title="${el.name}" tabindex="0">${el.name}</div>
             <div class="text-muted">
                 <span>Modified by John Smith</span><span class="ms-2">•</span><span
                     class="ms-2">3/22/21 1:02 PM </span>
@@ -107,5 +107,7 @@ function createDocs() {
         class="ms-2 btn btn-sm btn-new p-0" href="#">Appointments</a>
 </div>`
 }
+
+
 
 

@@ -339,13 +339,13 @@ const quickFiles = [
 ]
 
 
-function leftNavTemplate(arr) {
+function quickNavTemplate(arr) {
     return `<nav class="bd-links pt-3 pb-3 px-lg-3 px-md-2 px-sm-2 px-2">${createNavList(arr)}</nav>`;
 }
 
 function createNavListTemplate(el) {
     return `<div class="mb-2">
-    <div class="hover d-flex align-items-center rounded w-100 "><button class="btn ${el.parentClass}" data-bs-toggle="collapse" aria-expanded=${el.aria} data-bs-target="#quickNav-${el.id}"></button><div class="dblname ${el.level} truncate" title="${el.name}"><i class="fa-solid fa-folder me-2 accent-color"></i>${el.name}</div></div>
+    <div class="hover d-flex align-items-center rounded w-100"><button class="btn ${el.parentClass}" data-bs-toggle="collapse" aria-expanded=${el.aria} data-bs-target="#quickNav-${el.id}"></button><div tabindex="0" class="dblname ${el.level} truncate" title="${el.name}"><i class="fa-solid fa-folder me-2 accent-color"></i>${el.name}</div></div>
     <div id="quickNav-${el.id}" class="collapse ${el.childClass} ${el.padding}">
     ${el.items ? createNavList(el.items) : ''}
     ${el.files == true ? createNavListItems(quickFiles) : ''}
@@ -366,7 +366,7 @@ function createNavList(arr) {
 }
 
 
-$('#quick-nav-panel').append(leftNavTemplate(quickNavItems));
+$('#quick-nav-panel').append(quickNavTemplate(quickNavItems));
 
 $('.dblname').on('click', function(){
     console.log('fired')
@@ -387,4 +387,5 @@ $('.dblname').on('click', function(){
     $('.bd-links .active').removeClass('active');
     $(this).parent().addClass('active');
     $('#quick-nav-panel').removeClass('show');
-})
+});
+                

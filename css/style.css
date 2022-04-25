@@ -1,5 +1,5 @@
 :root {
-    --color-main: 31, 115, 226;
+    --color-main: 0, 82, 204;
 }
 
 html,
@@ -319,9 +319,9 @@ body {
     transform: rotate(90deg);
   }
 
-  .bd-links .btn:focus{
+  /* .bd-links .btn:focus{
       box-shadow: none;
-  }
+  } */
   
   .bd-links .active {
     background-color: rgba(13, 110, 253, 0.1);
