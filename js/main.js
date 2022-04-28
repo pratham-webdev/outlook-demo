@@ -101,17 +101,27 @@ $('#card-container,#body-files, #quick-nav-panel').on('keypress', '.alt-click, .
 });
 
 //ctrl click
-$('#card-container,#body-files').on('click', '.card', function (event) {
-    if (event.ctrlKey) {
-        if ($(this).hasClass('card-selected')) {
-            $(this).removeClass('card-selected');
-        }
-        else {
-            $(this).addClass('card-selected');
-        }
+// $('#card-container,#body-files').on('click', '.card', function (event) {
+//     if (event.ctrlKey) {
+//         if ($(this).hasClass('card-selected')) {
+//             $(this).removeClass('card-selected');
+//         }
+//         else {
+//             $(this).show('card-selected');
+//         }
 
-    }
-});
+//     }
+// });
+
+$('#card-container,#body-files').on('click', '.form-check-input', function (event) {
+            if ($(this).hasClass('card-selected')) {
+                $(this).removeClass('card-selected');
+            }
+            else {
+                $(this).parents('.card').addClass('card-selected');
+            }
+    
+    });
 
 //using keyboard to navigate cards in focus
 $('#card-container,#body-files').on('keydown', '.card', function (event) {

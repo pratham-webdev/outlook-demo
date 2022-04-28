@@ -165,6 +165,10 @@ body {
     border: 1px solid rgba(var(--color-main), 2) !important;
 }
 
+.form-check-input{
+    display: none;
+}
+
 .select-icon{
     display: none;
 }

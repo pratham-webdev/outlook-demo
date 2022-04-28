@@ -29,6 +29,12 @@ const plusOptions = [
         icon: 'fa-clipboard',
         func:`moreFunctions.paste.call()`
     },
+    {
+        id: 6,
+        name: 'Toggle Select Mode',
+        icon: 'fa-square-check',
+        func: `moreFunctions.selectMode.call()`
+    },
 ]
 
 const plusOptionsTemplate = `<button class="btn btn-sm btn-primary btn-quick ms-3 dropdown-toggle" type="button"

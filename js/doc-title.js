@@ -5,7 +5,7 @@ const documentTitle = `  <div id="doc-title" class="d-flex align-items-center">
 <div class="doc-title-header p-1" onclick="folderLevel=0; createMatters();"><i class="fs-5 fa-solid fa-folder opacity-50 me-2"></i>
 Q10834534 - The State vs Isabella</div>
 </div>
-<div id="bread-crumb" class="px-2 d-flex"></div>`
+<div id="bread-crumb" class="px-2 d-flex flex-wrap"></div>`
 
 function createDocumentTitle() {
     $('#doc-title-container').append(documentTitle);

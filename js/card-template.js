@@ -16,6 +16,7 @@ const moreFunctions = {
         copyItemsArray = []; 
         $('.dropdown-menu,.more-options').removeClass("show");
         $('.card-selected').removeClass('card-selected');
+        $('.form-check-input').hide();
 
     },
     multiCut: function(){
@@ -24,11 +25,17 @@ const moreFunctions = {
        });
         $('.card-selected').addClass('cut-item');
         $('.card-selected').removeClass('card-selected');
+        $('.form-check-input').hide();
    },
     multiCopy: function(){
         $('.card-selected').each(function(){
             copyItemsArray.push($(this)[0].outerHTML)
         });
+    },
+    selectMode: function(){
+        $('.form-check-input').toggle();
+        $('.form-check-input').prop('checked', false);
+        $('.card-selected').removeClass('card-selected');
     }
 }
 
@@ -63,6 +70,12 @@ const moreOptions = [
         icon: 'fa-clipboard',
         func: `moreFunctions.paste.call()`
     },
+    {
+        id: 6,
+        name: 'Toggle Select Mode',
+        icon: 'fa-square-check',
+        func: `moreFunctions.selectMode.call()`
+    },
 ]
 
 
@@ -84,7 +97,7 @@ function createMoreOptions(el) {
 function cardTemplate(el) {
     return `<div class="card mb-2 border-0 rounded-0" tabindex="0">
     <div class="p-2 d-flex justify-content-around">
-        <div class="icon d-flex"><i class="fa-solid fa-circle-check select-icon"></i><i class="fs-3 fa-solid ${el.icon} accent-color opacity-75"></i></div>
+        <div class="icon d-flex"><input class="form-check-input me-3" type="checkbox" value="" id="flexCheckDefault"></i><i class="fs-3 fa-solid ${el.icon} accent-color opacity-75"></i></div>
         <div class="card-details ps-3">
             <div class="card-name truncate alt-click" onClick="docMove = true; ${el.func};" title="${el.name}" tabindex="0">${el.name}</div>
             <div class="text-muted">
