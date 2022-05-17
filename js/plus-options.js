@@ -7,30 +7,36 @@ const plusOptions = [
     },
     {
         id: 2,
-        name: 'Create New Sub Folder',
-        icon: 'fa-folder-plus',
-        func:`toggleNewFolderLitebox()`
+        name: 'Upload Files from Email',
+        icon: 'fa-envelope',
+        bsTarget:`#email-file-panel`
     },
     {
         id: 3,
+        name: 'Create New Sub Folder',
+        icon: 'fa-folder-plus',
+        func:`toggleLitebox('#new-folder-panel')`
+    },
+    {
+        id: 4,
         name: 'Cut',
         icon: 'fa-scissors',
         func:`moreFunctions.multiCut.call()`
     },
     {
-        id: 4,
+        id: 5,
         name: 'Copy',
         icon: 'fa-copy',
         func:`moreFunctions.multiCopy.call()`
     },
     {
-        id: 5,
+        id: 6,
         name: 'Paste',
         icon: 'fa-clipboard',
         func:`moreFunctions.paste.call()`
     },
     {
-        id: 6,
+        id: 7,
         name: 'Toggle Select Mode',
         icon: 'fa-square-check',
         func: `moreFunctions.selectMode.call()`
@@ -47,8 +53,8 @@ ${plusOptions.map(createPlusOptions).join("")}
 
 function createPlusOptions(el) {
     return `<li class="w-100">
-    <button type="button" onclick="${el.func}"
-        class="btn btn-sm btn-new d-inline-flex align-items-center p-2 mx-2">
+    <button type="button" onclick="${el.func ? el.func : 'javaScript:void(0)'}"
+        class="btn btn-sm btn-new d-inline-flex align-items-center p-2 mx-2" data-bs-toggle="collapse" data-bs-target="${el.bsTarget ? el.bsTarget : ''}">
         <i class="fa-solid ${el.icon} me-2"></i>${el.name}
     </button>
 </li>`

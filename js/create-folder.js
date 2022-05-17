@@ -1,7 +1,7 @@
 const folderLiteboxTemplate = `<div class="litebox m-4">
 <div class="d-flex align-items-center justify-content-between px-3 pt-3 pb-2 border-bottom">
     <h5 class="text-header m-0">Create New Folder</h5>
-    <button class="btn btn-sm btn-new" onclick="toggleNewFolderLitebox()"><i class="fs-5 fa-solid fa-xmark"></i></button>
+    <button class="btn btn-sm btn-new" onclick="toggleLitebox('#new-folder-panel')"><i class="fs-5 fa-solid fa-xmark"></i></button>
 </div>
 <div class="p-3">
     <div>

@@ -5,6 +5,7 @@
 html,
 body {
     font-family: 'Roboto', sans-serif;
+    overflow-y: hidden;
 }
 
 .accent-color {
@@ -45,14 +46,13 @@ body {
 
 .btn-new {
     color: rgba(var(--color-main)) !important;
+    border: none;
     transition: 0.3s ease all;
 }
 
 .btn-new:hover {
     background-color: rgba(var(--color-main), .2);
 }
-
-
 
 .sidepanel {
     height: 100vh;
@@ -165,7 +165,7 @@ body {
     border: 1px solid rgba(var(--color-main), 2) !important;
 }
 
-.form-check-input{
+#card-container .form-check-input{
     display: none;
 }
 
@@ -197,7 +197,7 @@ body {
 
 #quick-nav-button{
     position: absolute;
-    bottom: 20px;
+    bottom: 0;
     margin: 0 auto;
     left: 0;
     right: 0;
@@ -233,6 +233,11 @@ body {
     border-radius: 12px;
     box-shadow: 2px 4px 18px #ddd;
     overflow: hidden;
+    position: absolute;
+    bottom: 90px;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 
 .bd-links {
@@ -304,6 +309,7 @@ body {
 
   .bd-links .btn{
       padding: .375rem;
+      border: none;
   }
   
   .bd-links .btn::before {
@@ -355,5 +361,13 @@ body {
     border-radius: 12px;
     box-shadow: 2px 4px 18px rgba(255,255,255,0.2);
   }
+
+  #email-file-panel{
+    border: 1px solid #dee;
+    background: #fff;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 2px 4px 18px #ddd;
+    overflow: hidden;
+}
 
   

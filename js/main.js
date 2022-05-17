@@ -34,12 +34,10 @@ function upDown() {
     }
 }
 
-function toggleNewFolderLitebox() {
-    $('#new-folder-panel').toggle();
-}
-
-function toggleFileLitebox() {
-    $('#upload-file-panel').toggle();
+//#upload-file-panel
+//#new-folder-panel
+function toggleLitebox(name) {
+    $(name).toggle();
 }
 
 function allowDrop(ev) {
@@ -58,7 +56,7 @@ function drop(ev) {
     ev.preventDefault();
     let fName = ev.dataTransfer.getData("text");
     let fProp = JSON.parse(fName);
-    toggleFileLitebox();
+    toggleLitebox('#upload-file-panel');
     $('#fileName').val(fProp.name);
     fileIcon = fProp.value;
 }
@@ -73,7 +71,7 @@ function createFolder() {
     }
     let tempFolderArr = cardTemplate(tempFolder);
 
-    toggleNewFolderLitebox();
+    toggleLitebox('#new-folder-panel');
     $('#card-container').append(tempFolderArr);
     folderNumber++;
 }
@@ -88,7 +86,7 @@ function uploadFile(name) {
     }
     let tempFileArr = cardTemplate(tempFile);
 
-    toggleFileLitebox();
+    toggleLitebox('#upload-file-panel');
     $('#card-container').append(tempFileArr);
     folderNumber++;
 }
@@ -114,8 +112,8 @@ $('#card-container,#body-files, #quick-nav-panel').on('keypress', '.alt-click, .
 // });
 
 $('#card-container,#body-files').on('click', '.form-check-input', function (event) {
-            if ($(this).hasClass('card-selected')) {
-                $(this).removeClass('card-selected');
+            if ($(this).parents('.card').hasClass('card-selected')) {
+                $(this).parents('.card').removeClass('card-selected');
             }
             else {
                 $(this).parents('.card').addClass('card-selected');

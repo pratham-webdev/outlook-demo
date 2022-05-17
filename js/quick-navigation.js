@@ -340,7 +340,7 @@ const quickFiles = [
 
 
 function quickNavTemplate(arr) {
-    return `<nav class="bd-links pt-3 pb-3 px-lg-3 px-md-2 px-sm-2 px-2">${createNavList(arr)}</nav>`;
+    return `<nav class="bd-links pt-3 pb-3 px-lg-2 px-md-2 px-sm-2 px-2">${createNavList(arr)}</nav>`;
 }
 
 function createNavListTemplate(el) {

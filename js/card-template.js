@@ -33,9 +33,12 @@ const moreFunctions = {
         });
     },
     selectMode: function(){
-        $('.form-check-input').toggle();
-        $('.form-check-input').prop('checked', false);
-        $('.card-selected').removeClass('card-selected');
+        $('#card-container .form-check-input').toggle();
+        $('#card-container .form-check-input').prop('checked', false);
+        $('#card-container .card-selected').removeClass('card-selected');
+    },
+    uploadEmailDocs: function(){
+        $('#email-file-panel').collapse('show');
     }
 }
 
@@ -50,7 +53,7 @@ const moreOptions = [
         id: 2,
         name: 'Create New Sub Folder',
         icon: 'fa-folder-plus',
-        func: `toggleNewFolderLitebox()`
+        func: `toggleLitebox('#new-folder-panel')`
     },
     {
         id: 3,
@@ -97,7 +100,7 @@ function createMoreOptions(el) {
 function cardTemplate(el) {
     return `<div class="card mb-2 border-0 rounded-0" tabindex="0">
     <div class="p-2 d-flex justify-content-around">
-        <div class="icon d-flex"><input class="form-check-input me-3" type="checkbox" value="" id="flexCheckDefault"></i><i class="fs-3 fa-solid ${el.icon} accent-color opacity-75"></i></div>
+        <div class="icon d-flex"><input class="form-check-input me-3" type="checkbox" value=""><i class="fs-3 fa-solid ${el.icon} accent-color opacity-75"></i></div>
         <div class="card-details ps-3">
             <div class="card-name truncate alt-click" onClick="docMove = true; ${el.func};" title="${el.name}" tabindex="0">${el.name}</div>
             <div class="text-muted">
