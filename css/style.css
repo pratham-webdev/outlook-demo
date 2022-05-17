@@ -370,4 +370,7 @@ body {
     overflow: hidden;
 }
 
+.rotate{
+    transform: rotate(180deg);
+}
   

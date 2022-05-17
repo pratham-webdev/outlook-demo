@@ -5,12 +5,12 @@ const plusOptions = [
         icon: 'fa-file-arrow-up',
         func:`javascript:void(0)`
     },
-    {
-        id: 2,
-        name: 'Upload Files from Email',
-        icon: 'fa-envelope',
-        bsTarget:`#email-file-panel`
-    },
+    // {
+    //     id: 2,
+    //     name: 'Upload Files from Email',
+    //     icon: 'fa-envelope',
+    //     func:`moreFunctions.uploadEmailDocs.call()`
+    // },
     {
         id: 3,
         name: 'Create New Sub Folder',
