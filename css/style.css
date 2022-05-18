@@ -55,11 +55,11 @@ body {
 }
 
 .sidepanel {
-    height: 100vh;
+    height: 95vh;
     width: 22vw;
-    position: fixed;
+    /* position: fixed;
     top: 0;
-    right: 0;
+    right: 0; */
     background-color: white;
     border-left: solid 2px #dee2e6;
     z-index: 999;

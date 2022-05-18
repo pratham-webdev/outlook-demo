@@ -34,7 +34,7 @@ function upDown() {
     }
 }
 
-//#upload-file-panel
+//#drag-upload-file-panel
 //#new-folder-panel
 function toggleLitebox(name) {
     $(name).toggle();
@@ -56,8 +56,8 @@ function drop(ev) {
     ev.preventDefault();
     let fName = ev.dataTransfer.getData("text");
     let fProp = JSON.parse(fName);
-    toggleLitebox('#upload-file-panel');
-    $('#fileName').val(fProp.name);
+    toggleLitebox('#drag-upload-file-panel');
+    $('#dragFileName').val(fProp.name);
     fileIcon = fProp.value;
 }
 
@@ -76,8 +76,8 @@ function createFolder() {
     folderNumber++;
 }
 
-function uploadFile(name) {
-    let tempFileName = String($('#fileName').val());
+function dragUploadFile(name) {
+    let tempFileName = String($('#dragFileName').val());
     let tempFile = {
         id: 'new' + folderNumber,
         name: `${tempFileName}`,
@@ -86,7 +86,7 @@ function uploadFile(name) {
     }
     let tempFileArr = cardTemplate(tempFile);
 
-    toggleLitebox('#upload-file-panel');
+    toggleLitebox('#drag-upload-file-panel');
     $('#card-container').append(tempFileArr);
     folderNumber++;
 }

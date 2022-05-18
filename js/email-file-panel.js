@@ -1,35 +1,46 @@
 let selectedDocsArr = [];
 
+let emailDocStatus = false;
+
+let emailDocNumber = 0;
+
 const emailDocs = [
     {
         id: 1,
         name: 'meeting notes.txt',
         icon: 'fa-file-lines',
         docs: false,
-        func:'javaScript:void(0);'
+        func: 'javaScript:void(0);'
     },
     {
         id: 2,
         name: 'recap.docx',
         icon: 'fa-file-word',
         docs: false,
-        func:'javaScript:void(0);'
+        func: 'javaScript:void(0);'
     },
     {
         id: 3,
         name: 'deck.ppt',
         icon: 'fa-file-powerpoint',
         docs: false,
-        func:'javaScript:void(0);'
+        func: 'javaScript:void(0);'
     },
     {
         id: 4,
         name: 'invoices.xlsx',
         icon: 'fa-file-excel',
         docs: false,
-        func:'javaScript:void(0);'
+        func: 'javaScript:void(0);'
     }
 ]
+
+const emailItem = {
+    name: 'Colin vs.Tanner.eml',
+    icon: 'fa-envelope',
+    docs: false,
+    func: 'javaScript:void(0)'
+}
 
 
 
@@ -48,7 +59,8 @@ const outerEmailFilePanel = `<div id="email-file-panel" class="mx-auto mb-0" tab
               </div>
           </div>
       </div>
-      <button class="btn btn-sm btn-new" type="button"><i class="fs-5 fa-solid fa-upload me-3"></i>Upload Email to Matter</button>
+      <button id="email-uploader" class="btn btn-sm btn-new" type="button" onclick="emailItemUpload()
+      "><i class="fs-5 fa-solid fa-upload me-3"></i>Upload Email to Matter</button>
       <div class="my-2">
       <div class="h6 mb-0 pb-2 border-bottom">Documents in the email (${emailDocs.length})</div>
       <div id="email-selected-docs" class="pt-3">
@@ -59,25 +71,73 @@ const outerEmailFilePanel = `<div id="email-file-panel" class="mx-auto mb-0" tab
   </div>
 </div>`
 
-function createEmailDocs(){
+function createEmailDocs() {
     let tempEmailDocsArr = emailDocs.map(createEmailDocsItems);
     return tempEmailDocsArr.join('');
 }
 
-function createEmailDocsItems(item){
+function createEmailDocsItems(item) {
     return `<div class="fw-normal pb-2 small rounded" title="${item.name}"><input class="form-check-input me-3" type="checkbox" value="${item.id}"><i class="fa-solid ${item.icon} accent-color me-2"></i><span class="truncate">${item.name}</span></div>`
 }
 
 $('#email-file-modal').append(outerEmailFilePanel);
 
-async function getSelectedDocs(){
+function getSelectedDocs() {
     selectedDocsArr = [];
-    $('#email-selected-docs input:checked').each(function() {
+    $('#email-selected-docs input:checked').each(function () {
+        //adding front-end check for files uploaded
+        $(this).parents('.fw-normal').addClass('upload-checked');
         emailDocs.forEach((item) => {
             item.id == $(this)[0].value ? selectedDocsArr.push(item) : '';
-        }) 
+        })
     });
-    $('#card-container').append(selectedDocsArr.map(cardTemplate).join('')); //uploading
+
+    //triggering upload liteboxes
+    editEmailDocUpload();
+}
+
+//litebox function
+function editEmailDocUpload() {
+    if (emailDocNumber < selectedDocsArr.length && emailDocStatus == false) {
+        //open litebox
+        toggleLitebox('#email-upload-file-panel');
+        //selecting name from array to put in litebox
+        $('#emailDocName').val(selectedDocsArr[emailDocNumber].name);
+        emailDocStatus = true;
+        //
+        emailDocNumber++;
+    }
+    else if (emailDocStatus == true && emailDocNumber < selectedDocsArr.length) {   //setting name in the array from the input
+        selectedDocsArr[emailDocNumber - 1].name = $('#emailDocName').val();
+        //selecting name from array to put in litebox
+        $('#emailDocName').val(selectedDocsArr[emailDocNumber].name);
+        //incrementing doc number for next doc in array
+        emailDocNumber++;
+    }
+    else {
+        selectedDocsArr[emailDocNumber - 1].name = $('#emailDocName').val();
+        //uploading files, basically rendering items in the card-container
+        $('#card-container').append(selectedDocsArr.map(cardTemplate).join(''));
+        //replacing checkboxes for front-end , first checking for other uploaded items
+        // if ($('.upload-checked input').hasClass('form-check-input')) {
+        //     $('.upload-checked .form-check-input').remove();
+        //     $('.upload-checked .form-check-input').prepend(`<i class="fa-solid fa-circle-check text-success me-2"></i>`);
+        // }
+        //closing litebox
+        toggleLitebox('#email-upload-file-panel');
+        //setting email docs to upload as zero
+        emailDocNumber = 0;
+        //setting upload status as false
+        emailDocStatus = false;
+    }
+}
+
+//email upload
+function emailItemUpload() {
+    $('#card-container').append(cardTemplate(emailItem));
+    $('#email-uploader i').removeClass(`fa-upload accent-color`);
+    $('#email-uploader i').addClass(`fa-circle-check text-success`);
+    $('#email-uploader').attr('onclick', 'javaScript:void(0)');
 }
 
 
