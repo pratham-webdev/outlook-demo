@@ -86,7 +86,9 @@ function getSelectedDocs() {
     selectedDocsArr = [];
     $('#email-selected-docs input:checked').each(function () {
         //adding front-end check for files uploaded
-        $(this).parents('.fw-normal').addClass('upload-checked');
+        if(!$(this).parents('.fw-normal').hasClass(`uploaded`)){
+            $(this).parents('.fw-normal').addClass(`upload-checked not-uploaded`);
+        }
         emailDocs.forEach((item) => {
             item.id == $(this)[0].value ? selectedDocsArr.push(item) : '';
         })
@@ -119,10 +121,12 @@ function editEmailDocUpload() {
         //uploading files, basically rendering items in the card-container
         $('#card-container').append(selectedDocsArr.map(cardTemplate).join(''));
         //replacing checkboxes for front-end , first checking for other uploaded items
-        // if ($('.upload-checked input').hasClass('form-check-input')) {
-        //     $('.upload-checked .form-check-input').remove();
-        //     $('.upload-checked .form-check-input').prepend(`<i class="fa-solid fa-circle-check text-success me-2"></i>`);
-        // }
+
+        // $('.upload-checked .form-check-input').remove();
+        $('.upload-checked.not-uploaded').append(`<i class="fa-solid fa-circle-check text-success ms-2 uploaded"></i>`);
+        $('.upload-checked.not-uploaded').addClass('uploaded');
+        $('.not-uploaded').removeClass('not-uploaded');
+
         //closing litebox
         toggleLitebox('#email-upload-file-panel');
         //setting email docs to upload as zero
@@ -135,9 +139,8 @@ function editEmailDocUpload() {
 //email upload
 function emailItemUpload() {
     $('#card-container').append(cardTemplate(emailItem));
-    $('#email-uploader i').removeClass(`fa-upload accent-color`);
-    $('#email-uploader i').addClass(`fa-circle-check text-success`);
-    $('#email-uploader').attr('onclick', 'javaScript:void(0)');
+    $('#email-uploader').append(`<i class="fa-solid fa-circle-check text-success ms-2 uploaded"></i>`);
+    $('#email-uploader').append(`<i class="fa-solid fa-circle-check text-success ms-2 uploaded"></i>`);
 }
 
 

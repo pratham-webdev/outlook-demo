@@ -9,7 +9,7 @@ const folderLiteboxTemplate = `<div class="litebox m-4">
             <label for="folderName" class="form-label">Folder Name</label>
             <input type="text" class="form-control" id="folderName" aria-describedby="folderName">
         </div>
-        <button type="submit" class="btn btn-primary" onclick="createFolder()">Create</button>
+        <button type="submit" class="btn btn-sm btn-primary" onclick="createFolder()">Create</button>
     </div>
 </div>
 </div>`
