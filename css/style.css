@@ -153,6 +153,10 @@ body {
     font-size: .9rem;
 }
 
+.card-date{
+    font-size: .7rem;
+}
+
 .card:hover{
     /* background-color: rgba(var(--color-main), .02); */
     border: 1px solid rgba(var(--color-main), 1) !important;
@@ -161,7 +165,7 @@ body {
 }
 
 .card-selected{
-    background-color: rgba(var(--color-main), .02);
+    background-color: rgba(var(--color-main), .05);
     border: 1px solid rgba(var(--color-main), 2) !important;
 }
 
@@ -373,4 +377,5 @@ body {
 .rotate{
     transform: rotate(180deg);
 }
+
   

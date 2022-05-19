@@ -27,7 +27,7 @@ function bodyFilesTemplate(el){
       <div class="p-2 d-flex">
           <div class="icon"><i class="fs-3 fa-solid ${el.icon} accent-color opacity-75"></i></div>
           <div class="card-details ps-3">
-              <div class="card-name" onclick="${el.func};" title="${el.name}">${el.name.length < 40 ? el.name : (el.name.substring(0,40)+"...")}</div>
+          <div class="card-name truncate" onclick="${el.func};" title="${el.name}">${el.name}</div>
               <div class="text-muted">
                   <span>Modified by John Smith</span><span class="ms-2">•</span><span
                       class="ms-2">3/22/21 1:02 PM </span>
