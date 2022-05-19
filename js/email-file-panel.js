@@ -140,7 +140,6 @@ function editEmailDocUpload() {
 function emailItemUpload() {
     $('#card-container').append(cardTemplate(emailItem));
     $('#email-uploader').append(`<i class="fa-solid fa-circle-check text-success ms-2 uploaded"></i>`);
-    $('#email-uploader').append(`<i class="fa-solid fa-circle-check text-success ms-2 uploaded"></i>`);
 }
 
 

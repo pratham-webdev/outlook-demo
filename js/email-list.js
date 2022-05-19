@@ -114,7 +114,7 @@ function emailListTemplate(el) {
 }
 
 function emailDocTemplate(el) {
-    return `<div class="card m-2 w-75" draggable="true" ondragstart="drag(event)" value="${el.icon}" name="${el.name}">
+    return `<div class="card me-2 w-75" draggable="true" ondragstart="drag(event)" value="${el.icon}" name="${el.name}">
     <div class="p-2 d-flex">
         <div class="icon"><i class="fa-solid ${el.icon} accent-color"></i></div>
         <div class="card-details ps-2">
@@ -140,11 +140,11 @@ function emailDetailTemplate(el) {
                 <button type="button" class="btn btn-sm btn-new"><i class="fa-solid fa-ellipsis"></i></button>
                 </div>
             </div>
-            <div class="card-name d-flex align-items-center justify-content-between mb-2">
+            <div class="card-name d-flex align-items-center justify-content-between mb-3">
                 <div title="${el.name}">To: ${el.name}</div><div
                     class="card-date ms-2 text-muted">Tue 5/17/2022 1:02 PM</div>
             </div>
-            <div class="d-flex align-items-center mb-1">
+            <div class="d-flex align-items-center mb-3">
                 ${el.docs.map(emailDocTemplate).join("")}
             </div>
             <div class="text-muted mb-1">

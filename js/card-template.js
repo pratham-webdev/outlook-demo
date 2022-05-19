@@ -2,33 +2,33 @@ let copyItemsArray = [];
 
 const moreFunctions = {
     cut: function () {
-        copyItemsArray.push($(this).parents('.card')[0].outerHTML);
+        copyItemsArray.push($(this).parents('.card')[0].outerHTML); //single cut is not really necessary
         // $(this).parents('.card')[0].remove();
         // console.log($(this).parents('.card'))
         $(this).parents('.card').addClass('cut-item');
 
     },
     copy: function () {
-        copyItemsArray.push($(this).parents('.card')[0].outerHTML);
+        copyItemsArray.push($(this).parents('.card')[0].outerHTML); //single copy is not really necessary
     },
     paste: function () {
         $('#card-container').append(copyItemsArray.join(""));
         copyItemsArray = [];
         $('.dropdown-menu,.more-options').removeClass("show");
         $('.card-selected').removeClass('card-selected');
-        $('.form-check-input').hide();
+        $('#card-container .form-check-input').hide();
 
     },
     multiCut: function () {
-        $('.card-selected').each(function () {
+        $('#card-container .card-selected').each(function () {
             copyItemsArray.push($(this)[0].outerHTML)
         });
-        $('.card-selected').addClass('cut-item');
-        $('.card-selected').removeClass('card-selected');
-        $('.form-check-input').hide();
+        $('#card-container .card-selected').addClass('cut-item');
+        $('#card-container .card-selected').removeClass('card-selected');
+        $('#card-container .form-check-input').hide();
     },
     multiCopy: function () {
-        $('.card-selected').each(function () {
+        $('#card-container .card-selected').each(function () {
             copyItemsArray.push($(this)[0].outerHTML)
         });
     },

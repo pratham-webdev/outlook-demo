@@ -1,7 +1,7 @@
 
-const navbarTemplate = `<nav class="navbar navbar-light bg-white border border-bottom py-2 global-nav">
+const navbarTemplate = `<nav class="navbar navbar-dark bg-primary py-2">
 <div class="container-fluid">
-  <div><a class="navbar-brand text-danger" href="#">TeamConnect Outlook Demo</a> <span class="text-danger navbar-disclaimer"><b>DISCLAIMER:</b> This is a demo environment</span></div>
+  <div><a class="navbar-brand text-white" href="#">TeamConnect Outlook Demo</a> <span class="text-white navbar-disclaimer">DISCLAIMER: This is a demo environment</span></div>
 </div>
 </nav>`
 
