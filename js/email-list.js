@@ -89,7 +89,7 @@ const emailList = [
 ]
 
 function emailListTemplate(el) {
-    return `<div class="card m-2 ${el.id == 'bf-1' ? 'card-selected' : ''}">
+    return `<div id=${el.id} class="card m-2 ${el.id == 'bf-1' ? 'card-selected' : ''}">
     <div class="p-2 d-flex">
         <div><div class="bg-primary p-2 card-date rounded-circle text-white d-flex align-items-center align-self-center text-uppercase ">${el.name.slice(0,2)}</div></div>
         <div class="card-details ps-3">
@@ -125,7 +125,7 @@ function emailDocTemplate(el) {
 }
 
 function emailDetailTemplate(el) {
-    return `<div class="card ms-2 my-2 me-3 ${el.id == 'bf-1' ? 'card-selected' : ''}">
+    return `<div class="card ms-2 my-2 me-3">
     <div class="h5 border-bottom p-3 d-flex align-items-center justify-content-between">${el.subject}<div class="icon text-muted fs-6"><i class="fa-solid fa-paperclip me-2"></i>${el.docs.length}</div></div>
     <div class="p-2 d-flex">
         <div><div class="bg-primary p-2 card-date rounded-circle text-white d-flex align-items-center align-self-center text-uppercase ">${el.name.slice(0, 2)}</div></div>
@@ -167,6 +167,24 @@ function createEmailList() {
     $('#email-list-container').append(emailListArr);
 }
 
+$('#email-list-container').on('click', '.card', function () {
+    if(!$(this).hasClass('card-selected')){
+     $('#email-detail-container').empty();
+     let selectedEmail = emailList.find(el=> el.id == $(this).attr('id'));
+     emailDocs = selectedEmail.docs;
+     createEmailDocs();
+     $('#email-file-panel-subject').text(selectedEmail.subject);
+     $('#email-file-panel-subject').attr('title',selectedEmail.subject);
+     $('#email-detail-container').append(emailDetailTemplate(selectedEmail));
+     $('#email-selected-docs').prev('.h6').text(`Documents in the email (${emailDocs.length})`);
+     $('.card-selected').removeClass('card-selected');
+     $(this).addClass('card-selected');
+    }
+ });
+
 
 createEmailList();
-$('#email-detail-container').append(emailDetailTemplate(emailList[1]));
+$('#email-detail-container').append(emailDetailTemplate(emailList[0]));
+
+
+

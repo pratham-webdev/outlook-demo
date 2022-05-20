@@ -11,7 +11,7 @@ const emailFileLiteboxTemplate = `<div class="litebox m-4">
         </div>
         <div class="d-flex align-items-center">
         <button type="submit" class="btn btn-sm btn-primary" onclick="editEmailDocUpload()">Upload</button>
-        <button type="submit" class="btn btn-sm btn-outline-primary ms-2" onclick="emailDocNumber = selectedDocsArr.length; editEmailDocUpload()">Skip Editing</button>
+        <button type="submit" class="btn btn-sm btn-outline-primary ms-2" onclick="emailDocNumber = selectedDocsArr.length; editEmailDocUpload(true)">Skip Editing</button>
         </div>
     </div>
 </div>
