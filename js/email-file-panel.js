@@ -51,7 +51,7 @@ const emailItem = {
 const outerEmailFilePanel = `<div id="email-file-panel" class="mx-auto mb-0" tabindex="0">
 <div class="px-3 py-2 border-bottom d-flex align-items-center justify-content-between">
     <h6 class="m-0">Upload Files from Selected Email</h6>
-    <button class="btn btn-sm btn-new" onclick="moreFunctions.uploadEmailDocs.call()"><i class="fs-5 fa-solid fa-chevron-down"></i></button>
+    <button class="btn btn-sm btn-new" onclick="moreFunctions.uploadEmailDocs('#docs-panel')"><i class="fs-5 fa-solid fa-chevron-down"></i></button>
 </div>
 <div id="docs-panel" class="collapse show ">
 <div class="px-3 pt-3 file-upload-scroll">

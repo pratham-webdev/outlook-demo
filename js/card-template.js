@@ -37,9 +37,10 @@ const moreFunctions = {
         $('#card-container .form-check-input').prop('checked', false);
         $('#card-container .card-selected').removeClass('card-selected');
     },
-    uploadEmailDocs: function () {
-        $('#docs-panel').collapse('toggle');
-        $('.fa-chevron-down').toggleClass('rotate');
+    uploadEmailDocs: function (location) {
+        $(`${location}`).collapse('toggle');
+        let tempID = $(`${location}`).parent().attr('id');
+        $(`#${tempID} .fa-chevron-down`).toggleClass('rotate');
     }
 }
 
@@ -72,13 +73,13 @@ const moreOptions = [
         id: 5,
         name: 'Paste',
         icon: 'fa-clipboard',
-        func: `moreFunctions.paste.call()`
+        func: `moreFunctions.paste()`
     },
     {
         id: 6,
         name: 'Toggle Select Mode',
         icon: 'fa-square-check',
-        func: `moreFunctions.selectMode.call()`
+        func: `moreFunctions.selectMode()`
     },
 ]
 

@@ -21,25 +21,25 @@ const plusOptions = [
         id: 4,
         name: 'Cut',
         icon: 'fa-scissors',
-        func:`moreFunctions.multiCut.call()`
+        func:`moreFunctions.multiCut()`
     },
     {
         id: 5,
         name: 'Copy',
         icon: 'fa-copy',
-        func:`moreFunctions.multiCopy.call()`
+        func:`moreFunctions.multiCopy()`
     },
     {
         id: 6,
         name: 'Paste',
         icon: 'fa-clipboard',
-        func:`moreFunctions.paste.call()`
+        func:`moreFunctions.paste()`
     },
     {
         id: 7,
         name: 'Toggle Select Mode',
         icon: 'fa-square-check',
-        func: `moreFunctions.selectMode.call()`
+        func: `moreFunctions.selectMode()`
     },
 ]
 
