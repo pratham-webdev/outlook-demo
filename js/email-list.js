@@ -7,21 +7,42 @@ const emailList = [
         docs: [
             {
                 id: 'emailf-1',
-                name: 'meeting notes.txt',
+                name: 'notes & files.txt',
                 icon: 'fa-file-lines',
                 docs: false,
                 func: 'javaScript:void(0);'
             },
             {
                 id: 'emailf-2',
-                name: 'recap.docx',
+                name: 'account information.docx',
                 icon: 'fa-file-word',
                 docs: false,
                 func: 'javaScript:void(0);'
             },
             {
                 id: 'emailf-3',
-                name: 'deck.ppt',
+                name: 'slideshows.ppt',
+                icon: 'fa-file-powerpoint',
+                docs: false,
+                func: 'javaScript:void(0);'
+            },
+            {
+                id: 'emailf-4',
+                name: 'case details.txt',
+                icon: 'fa-file-lines',
+                docs: false,
+                func: 'javaScript:void(0);'
+            },
+            {
+                id: 'emailf-5',
+                name: '2019-04-02 court notes.docx',
+                icon: 'fa-file-word',
+                docs: false,
+                func: 'javaScript:void(0);'
+            },
+            {
+                id: 'emailf-6',
+                name: '2019-05-02 affidavit.ppt',
                 icon: 'fa-file-powerpoint',
                 docs: false,
                 func: 'javaScript:void(0);'
@@ -36,29 +57,29 @@ const emailList = [
         docs: [
             {
                 id: 'emailf-1',
-                name: 'meeting notes.txt',
+                name: '2020-10-02 notes.txt',
                 icon: 'fa-file-lines',
                 docs: false,
                 func: 'javaScript:void(0);'
             },
             {
                 id: 'emailf-2',
-                name: 'recap.docx',
+                name: '2020-10-02 recap.docx',
                 icon: 'fa-file-word',
                 docs: false,
                 func: 'javaScript:void(0);'
             },
             {
                 id: 'emailf-3',
-                name: 'deck.ppt',
+                name: '2020-10-02 case matter.ppt',
                 icon: 'fa-file-powerpoint',
                 docs: false,
                 func: 'javaScript:void(0);'
             },
             {
                 id: 'emailf-4',
-                name: 'invoices.xlsx',
-                icon: 'fa-file-excel',
+                name: '2020-10-02 case details.txt',
+                icon: 'fa-file-lines',
                 docs: false,
                 func: 'javaScript:void(0);'
             },
@@ -72,15 +93,57 @@ const emailList = [
         docs: [
             {
                 id: 'emailf-1',
-                name: 'meeting notes.txt',
+                name: '2022-11-03-Josh-vs-Deacon matter notes.txt',
                 icon: 'fa-file-lines',
                 docs: false,
                 func: 'javaScript:void(0);'
             },
             {
                 id: 'emailf-2',
-                name: 'recap.docx',
+                name: '2022-11-03-Josh-vs-Deacon matter details.docx',
                 icon: 'fa-file-word',
+                docs: false,
+                func: 'javaScript:void(0);'
+            },
+            {
+                id: 'emailf-3',
+                name: '2022-11-03-Josh-vs-Deacon-matter notes.ppt',
+                icon: 'fa-file-powerpoint',
+                docs: false,
+                func: 'javaScript:void(0);'
+            },
+            {
+                id: 'emailf-4',
+                name: '2022-11-03-Josh-vs-Deacon details.txt',
+                icon: 'fa-file-lines',
+                docs: false,
+                func: 'javaScript:void(0);'
+            },
+            {
+                id: 'emailf-5',
+                name: '2022-11-03-Josh-vs-Deacon.txt',
+                icon: 'fa-file-lines',
+                docs: false,
+                func: 'javaScript:void(0);'
+            },
+            {
+                id: 'emailf-6',
+                name: '2022-11-03-Josh-vs-Deacon-recap.docx',
+                icon: 'fa-file-word',
+                docs: false,
+                func: 'javaScript:void(0);'
+            },
+            {
+                id: 'emailf-7',
+                name: '2022-11-03-Josh-vs-Deacon-case matter.ppt',
+                icon: 'fa-file-powerpoint',
+                docs: false,
+                func: 'javaScript:void(0);'
+            },
+            {
+                id: 'emailf-8',
+                name: '2022-11-03-Josh-vs-Deacon-details.txt',
+                icon: 'fa-file-lines',
                 docs: false,
                 func: 'javaScript:void(0);'
             },
@@ -114,11 +177,11 @@ function emailListTemplate(el) {
 }
 
 function emailDocTemplate(el) {
-    return `<div class="card me-2 w-75" draggable="true" ondragstart="drag(event)" value="${el.icon}" name="${el.name}">
+    return `<div class="card me-2 col" draggable="true" ondragstart="drag(event)" value="${el.icon}" name="${el.name}">
     <div class="p-2 d-flex">
         <div class="icon"><i class="fa-solid ${el.icon} accent-color"></i></div>
         <div class="card-details ps-2">
-            <div class="card-name" onclick="${el.func};" title="${el.name}">${el.name}</div>
+            <div class="card-name email-file-truncate" onclick="${el.func};" title="${el.name}">${el.name}</div>
         </div>
     </div>
 </div>`
@@ -144,7 +207,7 @@ function emailDetailTemplate(el) {
                 <div title="${el.name}">To: ${el.name}</div><div
                     class="card-date ms-2 text-muted">Tue 5/17/2022 1:02 PM</div>
             </div>
-            <div class="d-flex align-items-center mb-3">
+            <div class="row row-cols-4 row-cols-lg-4 g-2 g-lg-3 mb-3">
                 ${el.docs.map(emailDocTemplate).join("")}
             </div>
             <div class="text-muted mb-1">
@@ -176,7 +239,8 @@ $('#email-list-container').on('click', '.card', function () {
      $('#email-file-panel-subject').text(selectedEmail.subject);
      $('#email-file-panel-subject').attr('title',selectedEmail.subject);
      $('#email-detail-container').append(emailDetailTemplate(selectedEmail));
-     $('#email-selected-docs').prev('.h6').text(`Documents in the email (${emailDocs.length})`);
+     $('#select-deselect').prop('checked',true);
+     $('#email-selected-docs').prev('.h6').find('span').text(`Documents in the email (${emailDocs.length})`);
      $('.card-selected').removeClass('card-selected');
      $(this).addClass('card-selected');
     }

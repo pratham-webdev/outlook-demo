@@ -17,5 +17,30 @@ const emailFileLiteboxTemplate = `<div class="litebox m-4">
 </div>
 </div>`
 
+const fileProgressLiteboxTemplate = `<div class="litebox m-4">
+<div class="d-flex align-items-center justify-content-between px-3 pt-3 pb-2 border-bottom">
+    <h5 class="text-header m-0">Upload Completed</h5>
+    <button class="btn btn-sm btn-new" onclick="toggleLitebox('#file-progress-panel')"><i class="fs-5 fa-solid fa-xmark"></i></button>
+</div>
+<div class="p-3">
+    <div id="completed-files-list">
+        This is file upload
+    </div>
+</div>
+</div>`
+
+//creating email-files list in the email-files modal
+function createCompleteFiles() {
+    $('#completed-files-list').empty();
+    let tempEmailDocsArr = selectedDocsArr.map(createCompleteFilesItems).join('');
+    $('#completed-files-list').append(tempEmailDocsArr);
+}
+//creating individual list UI for the email-files list
+function createCompleteFilesItems(item) {
+    return `<div class="fw-normal pb-2 small rounded d-flex justify-content-between" title="${item.name}"><div><i class="fa-solid ${item.icon} accent-color me-2"></i><span class="truncate">${item.name}</span></div><i class="fa-solid fa-circle-check text-success ms-2 uploaded"></i></div>`
+}
+
 $('#email-upload-file-panel-sub').append(emailFileLiteboxTemplate);
+$('#file-progress-panel-sub').append(fileProgressLiteboxTemplate);
+
 
