@@ -2,7 +2,7 @@ const emailList = [
     {
         id: 'bf-1',
         name: 'Robert Oppenheimer',
-        subject: 'Wavefunctions',
+        subject: 'The State vs. Isabella',
         desc: 'The transmission through the barrier can be finite and depends exponentially on the barrier height and barrier width. The wavefunction may disappear on one side and reappear on the other side. The wavefunction and its first derivative are continuous. ',
         docs: [
             {
@@ -52,7 +52,7 @@ const emailList = [
     {
         id: 'bf-2',
         name: 'Stephen Hawkings',
-        subject: 'Accretion Disks',
+        subject: 'Jason Tanner vs. Em Colins',
         desc: 'A disklike flow of gas, plasma, dust, or particles around an astronomical object in which the material orbiting in the gravitational field of the object loses energy and angular momentum as it slowly spirals inward.',
         docs: [
             {
@@ -88,7 +88,7 @@ const emailList = [
     {
         id: 'bf-3',
         name: 'John von Neumann',
-        subject: 'Technological Singularity',
+        subject: 'Ein Stein vs. Neil Bohris',
         desc: 'The technological singularity—or simply the singularity—is a hypothetical point in time at which technological growth becomes uncontrollable and irreversible, resulting in unforeseeable changes to human civilization.',
         docs: [
             {
@@ -232,23 +232,25 @@ function createEmailList() {
 
 $('#email-list-container').on('click', '.card', function () {
     if(!$(this).hasClass('card-selected')){
-     $('#email-detail-container').empty();
-     let selectedEmail = emailList.find(el=> el.id == $(this).attr('id'));
-     emailDocs = selectedEmail.docs;
-     createEmailDocs();
-     $('#email-file-panel-subject').text(selectedEmail.subject);
-     $('#email-file-panel-subject').attr('title',selectedEmail.subject);
-     $('#email-detail-container').append(emailDetailTemplate(selectedEmail));
-     $('#select-deselect').prop('checked',true);
-     $('#email-selected-docs').prev('.h6').find('span').text(`Documents in the email (${emailDocs.length})`);
-     $('.card-selected').removeClass('card-selected');
-     $(this).addClass('card-selected');
+     $('#email-detail-container').empty(); //clearing detail container
+     let selectedEmail = emailList.find(el=> el.id == $(this).attr('id')); // finding the selected email on click from the list of email's by matching ID
+     emailDocs = selectedEmail.docs; //setting emailDocs to selected email's documents
+     createEmailDocs(); //filling the email upload modal with the selected email's documents
+     $('#email-file-panel-subject').text(selectedEmail.subject); //setting subject in upload modal 
+     $('#email-file-panel-subject').attr('title',selectedEmail.subject); //setting title in upload modal
+     emailItem.name = selectedEmail.subject + '.eml'; //setting upload email item's name to the selected email's subject
+     $('#email-uploader i.uploaded').remove(); //removing uploaded email check from the email upload button in upload modal
+     $('#email-detail-container').append(emailDetailTemplate(selectedEmail));//creating email detail container
+     $('#select-deselect').prop('checked',true); //default option to select all documents in upload modal
+     $('#email-selected-docs').prev('.h6').find('span').text(`Documents in the email (${emailDocs.length})`); //updating documents in email count on selecting different email
+     $('.card-selected').removeClass('card-selected'); // removing selected class from previous email
+     $(this).addClass('card-selected');//adding selected class to selected email div
     }
  });
 
 
-createEmailList();
-$('#email-detail-container').append(emailDetailTemplate(emailList[0]));
+createEmailList(); // create list of emails in the inbox
+$('#email-detail-container').append(emailDetailTemplate(emailList[0]));// on load first email to be selected by default
 
 
 

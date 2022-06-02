@@ -1,10 +1,10 @@
-let selectedDocsArr = [];
+let selectedDocsArr = []; //storage for selected documents in email upload modal
 
 let emailDocStatus = false; //first upload status
 
-let emailDocNumber = 0;
+let emailDocNumber = 0; //count for number of documents
 
-let emailDocs = emailList[0].docs;
+let emailDocs = emailList[0].docs; //first email selected, so loading modal with the same documents on initial render
 
 // const emailDocs = [
 //     {
@@ -38,9 +38,9 @@ let emailDocs = emailList[0].docs;
 // ]
 
 
-
+//
 const emailItem = {
-    name: 'Colin vs.Tanner.eml',
+    name: 'The State vs. Isabella.eml',
     icon: 'fa-envelope',
     docs: false,
     func: 'javaScript:void(0)'
@@ -114,7 +114,7 @@ function selectDeselectDocs(){
      $('#email-selected-docs input').prop('checked', !value);
 }
 
-//litebox function
+//upload litebox function
 function editEmailDocUpload(skip) {
     if (emailDocNumber < selectedDocsArr.length && emailDocStatus == false) {
         //open litebox
@@ -147,23 +147,37 @@ function editEmailDocUpload(skip) {
 
         //closing litebox
         toggleLitebox('#email-upload-file-panel');
-        createCompleteFiles();
+        //creating progress for files
+        createCompleteFiles(selectedDocsArr);
+        //toggle upload complete litebox
         toggleLitebox('#file-progress-panel');
-        //setting email docs to upload as zero
-        emailDocNumber = 0;
-        //setting upload status as false
-        emailDocStatus = false;
-        skip == false;
-        selectedDocsArr = [];
+        //resetting all variables to base
+        resetEmailDocUpload();
     }
 }
 
-//email upload
-function emailItemUpload() {
-    $('#card-container').append(cardTemplate(emailItem));
-    $('#email-uploader').append(`<i class="fa-solid fa-circle-check text-success ms-2 uploaded"></i>`);
+// resetting all upload variables function
+function resetEmailDocUpload(){
+    //setting email docs to upload as zero
+    emailDocNumber = 0;
+    //setting upload status as false
+    emailDocStatus = false;
+    skip == false;
+    selectedDocsArr = [];
 }
 
+//email upload function
+function emailItemUpload() {
+    $('#card-container').append(cardTemplate(emailItem));
+     if(!$('#email-uploader i').hasClass('uploaded')){
+    $('#email-uploader').append(`<i class="fa-solid fa-circle-check text-success ms-2 uploaded"></i>`);
+   }
+   createCompleteFiles(emailItem);
+   toggleLitebox('#file-progress-panel');
+
+}
+
+//creating email's documents in the emails list modal
 createEmailDocs();
 
 
