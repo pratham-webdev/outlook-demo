@@ -18,6 +18,7 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- in-house styles  -->
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/introjs.min.css" integrity="sha512-iaYE9B9u4GU8+KkRTOdRdZuzKdYw1X0hOAa4GwDV/uwdXgoX/ffT3ph1+HG1m4LPZD/HV+dkuHvWFLZtPviylQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -35,13 +36,13 @@
     </div>
 
     <!-- outlook panel form  -->
-    <div id="outlook-panel" class="position-relative">
+    <div id="outlook-panel" class="position-relative" data-title="Hello" data-intro='Hello step one!'>
         <div class="sidepanel">
             <div class="d-flex align-items-center justify-content-between px-3 pt-3 pb-2">
                 <h4 class="text-header m-0">Outlook Add-In</h4>
                 <button class="btn btn-sm btn-new"><i class="fs-5 fa-solid fa-xmark"></i></button>
             </div>
-            <div id="main-tabs">
+            <div id="main-tabs" data-title="Hello" data-intro='Hello step one!'>
                 <ul class="nav">
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Disputes</a>
@@ -54,7 +55,7 @@
                     </li>
                 </ul>
             </div>
-            <div id="search-bar" class="p-3">
+            <div id="search-bar" class="p-3" data-title="Hello" data-intro='Hello step one!'>
                 <form class="d-flex" style="height: 3vh;">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                     <button class="btn btn-sm btn-new"><i class="fs-5 fa-solid fa-sliders"></i></button>
@@ -188,6 +189,10 @@
 
 
     <script src="js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/intro.min.js" integrity="sha512-B0B1bdTGi9XHtoCINbtR6z9Vi8IYvvtImIE8KWMtqWAVUt2Wn2k69GxM7ya/3rQcz/Pgm/o1WcDU347/5k202A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="intro/tour-guide.js"></script>
+
+
 
 </body>
 
