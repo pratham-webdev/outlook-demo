@@ -11,164 +11,115 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <!-- bootstrap  -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
     <!-- font awesome  -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- in-house styles  -->
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/introjs.min.css" integrity="sha512-iaYE9B9u4GU8+KkRTOdRdZuzKdYw1X0hOAa4GwDV/uwdXgoX/ffT3ph1+HG1m4LPZD/HV+dkuHvWFLZtPviylQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/introjs.min.css"
+        integrity="sha512-iaYE9B9u4GU8+KkRTOdRdZuzKdYw1X0hOAa4GwDV/uwdXgoX/ffT3ph1+HG1m4LPZD/HV+dkuHvWFLZtPviylQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
 
     <div id="navbar-container"></div>
-   <div id="parent-container" class="d-flex justify-content-between">
-    <!-- <div id="body-files"></div> -->
-    <div id="email-parent">
-        <div id="email-buttons" class="d-flex bg-white p-2 border-bottom">
+    <div id="parent-container" class="d-flex justify-content-between">
+        <!-- <div id="body-files"></div> -->
+        <div id="email-parent">
+            <div id="email-buttons" class="d-flex bg-white p-2 border-bottom">
+            </div>
+            <div id="email-container" class="d-flex pt-2">
+                <div id="email-list-container"></div>
+                <div id="email-detail-container"></div>
+            </div>
         </div>
-        <div id="email-container" class="d-flex pt-2">
-            <div id="email-list-container"></div>
-        <div id="email-detail-container"></div>
+
+        <!-- outlook panel form  -->
+        <div id="outlook-panel" class="position-relative" data-title="Hello" data-intro='Hello step one!'>
+            <div class="sidepanel">
+            <!-- top layer goes here  -->
+            <div id="top-layer"></div>
+                <div id="doc-title-container">
+                </div>
+                <div class="sidepanel-scroll">
+                    <div id="card-container" class="px-0 pt-2" ondrop="drop(event)" ondragover="allowDrop(event)">
+                        <!-- card container goes here  -->
+                    </div>
+                </div>
+
+                <div id="quick-nav-button">
+                    <div id="quick-nav-panel" class="collapse mx-auto mb-3" tabindex="0">
+                        <div class="px-3 py-2 border-bottom d-flex align-items-center justify-content-between">
+                            <h6 class="m-0">Quick Navigation</h6>
+                            <button class="btn btn-sm btn-new" data-bs-toggle="collapse"
+                                data-bs-target="#quick-nav-panel"><i class="fs-5 fa-solid fa-xmark"></i></button>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center justify-content-center pb-2">
+                        <button type="button" class="btn btn-primary btn-sm btn-quick" data-bs-toggle="collapse"
+                            data-bs-target="#quick-nav-panel">Quick Navigation</button>
+                        <div id="plus-options">
+
+                        </div>
+                    </div>
+                    <div id="email-file-modal">
+                    </div>
+                </div>
+
+                <!-- Folder Modal -->
+                <div id="new-folder-panel" class="litebox-panel">
+                    <div id="new-folder-panel-sub" class="d-flex flex-column justify-content-center h-100"></div>
+                </div>
+                <!-- Drag File Modal -->
+                <div id="drag-upload-file-panel" class="litebox-panel">
+                    <div id="drag-upload-file-panel-sub" class="d-flex flex-column justify-content-center h-100"></div>
+                </div>
+                <!-- Email File Modal -->
+                <div id="email-upload-file-panel" class="litebox-panel">
+                    <div id="email-upload-file-panel-sub" class="d-flex flex-column justify-content-center h-100"></div>
+                </div>
+                <!-- File Progress Modal -->
+                <div id="file-progress-panel" class="litebox-panel">
+                    <div id="file-progress-panel-sub" class="d-flex flex-column justify-content-center h-100"></div>
+                </div>
+            </div>
+
         </div>
     </div>
 
-    <!-- outlook panel form  -->
-    <div id="outlook-panel" class="position-relative" data-title="Hello" data-intro='Hello step one!'>
-        <div class="sidepanel">
-            <div class="d-flex align-items-center justify-content-between px-3 pt-3 pb-2">
-                <h4 class="text-header m-0">Outlook Add-In</h4>
-                <button class="btn btn-sm btn-new"><i class="fs-5 fa-solid fa-xmark"></i></button>
-            </div>
-            <div id="main-tabs" data-title="Hello" data-intro='Hello step one!'>
-                <ul class="nav">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Disputes</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Transactions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Documents</a>
-                    </li>
-                </ul>
-            </div>
-            <div id="search-bar" class="p-3" data-title="Hello" data-intro='Hello step one!'>
-                <form class="d-flex" style="height: 3vh;">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-sm btn-new"><i class="fs-5 fa-solid fa-sliders"></i></button>
-                </form>
-            </div>
-            <div id="sub-tabs" class="px-3 pt-2">
-                <ul class="nav nav-pills">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Disputes</a>
-                    </li>
-                    <li class="nav-item ms-2">
-                        <a class="nav-link" href="#">All Matters</a>
-                    </li>
-                    <li class="nav-item ms-2">
-                        <a class="nav-link" href="#">My Assigned</a>
-                    </li>
-                </ul>
-                <div class="d-flex justify-content-between align-items-center">
-                    <div class="py-2 d-flex align-items-center">
-                        <select class="form-select selection" aria-label="Default select example">
-                            <option selected>10</option>
-                            <option value="1">10</option>
-                            <option value="2">25</option>
-                            <option value="3">50</option>
-                            <option value="3">100</option>
-                            <option value="3">200</option>
-                        </select>
-                        <span>/120</span>
-                    </div>
-                    <div class="py-2 d-flex align-items-center">
-                        <span class="text-muted">Sort By:</span>
-                        <select class="form-select selection" aria-label="Default select example">
-                            <option selected>Modified On</option>
-                            <option value="1">Latest</option>
-                            <option value="2">Oldest</option>
-                        </select>
-                        <button class="btn btn-sm btn-new"><i
-                                class="fs- fa-solid fa-arrow-down-wide-short"></i></button>
-                    </div>
+    <div id="how-to-use">
+        <div class="container card">
+            <div id="how-container" class="p-3">
+                <div class="pb-1 border-bottom d-flex align-items-center justify-content-between">
+                    <h5 class="m-0">Available Features on Demo</h5>
+                    <button class="btn btn-sm btn-new" onclick="moreFunctions.uploadEmailDocs('#how-list')"><i
+                            class="fs-5 fa-solid fa-chevron-down rotate"></i></button>
                 </div>
-            </div>
-            <div id="doc-title-container">
-            </div>
-            <div class="sidepanel-scroll">
-                <div id="card-container" class="px-0 pt-2" ondrop="drop(event)" ondragover="allowDrop(event)">
-                </div>
-            </div>
-
-            <div id="quick-nav-button">
-                <div id="quick-nav-panel" class="collapse mx-auto mb-3" tabindex="0">
-                    <div class="px-3 py-2 border-bottom d-flex align-items-center justify-content-between">
-                        <h6 class="m-0">Quick Navigation</h6>
-                        <button class="btn btn-sm btn-new" data-bs-toggle="collapse"
-                            data-bs-target="#quick-nav-panel"><i class="fs-5 fa-solid fa-xmark"></i></button>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-center pb-2">
-                    <button type="button" class="btn btn-primary btn-sm btn-quick" data-bs-toggle="collapse"
-                        data-bs-target="#quick-nav-panel">Quick Navigation</button>
-                    <div id="plus-options">
-
-                    </div>
-                </div>
-                <div id="email-file-modal">
-                </div>
-            </div>
-            
-            <!-- Folder Modal -->
-            <div id="new-folder-panel" class="litebox-panel">
-                <div id="new-folder-panel-sub" class="d-flex flex-column justify-content-center h-100"></div>
-            </div>
-            <!-- Drag File Modal -->
-            <div id="drag-upload-file-panel" class="litebox-panel">
-                <div id="drag-upload-file-panel-sub" class="d-flex flex-column justify-content-center h-100"></div>
-            </div>
-            <!-- Email File Modal -->
-            <div id="email-upload-file-panel" class="litebox-panel">
-                <div id="email-upload-file-panel-sub" class="d-flex flex-column justify-content-center h-100"></div>
-            </div>
-            <!-- File Progress Modal -->
-            <div id="file-progress-panel" class="litebox-panel">
-                <div id="file-progress-panel-sub" class="d-flex flex-column justify-content-center h-100"></div>
+                <ol id="how-list" class="list-group list-group-flush list-group-numbered collapse">
+                    <li class="list-group-item">Navigation via card structure</li>
+                    <li class="list-group-item">Navigation via Quick Navigation</li>
+                    <li class="list-group-item">Uploading Files attached to Emails</li>
+                    <li class="list-group-item">Cut, Copy & Paste single documents</li>
+                    <li class="list-group-item">Cut, Copy & Paste multiple documents (Using selection mode)</li>
+                </ol>
             </div>
         </div>
-
     </div>
-   </div>
-
-   <div id="how-to-use">
-       <div  class="container card">
-        <div id="how-container" class="p-3">
-            <div class="pb-1 border-bottom d-flex align-items-center justify-content-between">
-                <h5 class="m-0">Available Features on Demo</h5>
-                <button class="btn btn-sm btn-new" onclick="moreFunctions.uploadEmailDocs('#how-list')"><i class="fs-5 fa-solid fa-chevron-down rotate"></i></button>
-            </div>
-            <ol id="how-list" class="list-group list-group-flush list-group-numbered collapse">
-                <li class="list-group-item">Navigation via card structure</li>
-                <li class="list-group-item">Navigation via Quick Navigation</li>
-                <li class="list-group-item">Uploading Files attached to Emails</li>
-                <li class="list-group-item">Cut, Copy & Paste single documents</li>
-                <li class="list-group-item">Cut, Copy & Paste multiple documents (Using selection mode)</li>
-              </ol>
-        </div>
-       </div>
-   </div>
 
     <!-- bootstrap js bundle  -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
- 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
     <!-- jquery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- in-house js files  -->
     <script src="js/navbar.js"></script>
+    <script src="js/top-layer.js"></script>
     <script src="js/card-template.js"></script>
     <script src="js/matters.js"></script>
     <script src="js/matter-detail.js"></script>
@@ -189,8 +140,10 @@
 
 
     <script src="js/main.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/intro.min.js" integrity="sha512-B0B1bdTGi9XHtoCINbtR6z9Vi8IYvvtImIE8KWMtqWAVUt2Wn2k69GxM7ya/3rQcz/Pgm/o1WcDU347/5k202A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="intro/tour-guide.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intro.js/5.1.0/intro.min.js"
+        integrity="sha512-B0B1bdTGi9XHtoCINbtR6z9Vi8IYvvtImIE8KWMtqWAVUt2Wn2k69GxM7ya/3rQcz/Pgm/o1WcDU347/5k202A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- <script src="intro/tour-guide.js"></script> -->
 
 
 
