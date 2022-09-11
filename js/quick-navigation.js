@@ -343,6 +343,11 @@ function quickNavTemplate(arr) {
     return `<nav class="bd-links pt-3 pb-3 px-lg-2 px-md-2 px-sm-2 px-2">${createNavList(arr)}</nav>`;
 }
 
+function createNavList(arr) {
+    let tempNavListArr = arr.map(createNavListTemplate);
+    return tempNavListArr.join("");
+}
+
 function createNavListTemplate(el) {
     return `<div class="mb-2">
     <div class="hover d-flex align-items-center rounded w-100"><button class="btn ${el.parentClass}" data-bs-toggle="collapse" aria-expanded=${el.aria} data-bs-target="#quickNav-${el.id}"></button><div tabindex="0" class="dblname ${el.level} truncate" title="${el.name}"><i class="fa-solid fa-folder me-2 accent-color"></i>${el.name}</div></div>
@@ -358,11 +363,6 @@ function createNavListItems(items) {
         return `<a href="#" onclick="${item.func}" class="d-block fw-normal pb-1 small rounded truncate" title="${item.name}"><i class="fa-solid ${item.icon} accent-color me-2"></i>${item.name}</a>`;
     });
     return tempItemArr.join("");
-}
-
-function createNavList(arr) {
-    let tempNavListArr = arr.map(createNavListTemplate);
-    return tempNavListArr.join("");
 }
 
 

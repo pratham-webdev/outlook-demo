@@ -13,6 +13,10 @@ body {
     color: rgba(var(--color-main));
 }
 
+.form-label{
+    font-size: .9rem;
+}
+
 
 .navbar-brand {
     display: inline-flex;
@@ -31,12 +35,12 @@ body {
 /* width */
 ::-webkit-scrollbar {
     width: 8px;
-    height: 10px;
+    height: 6px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: #b0b4bb;
+    background: #c8ccd3;
     border-radius: 10px;
 }
 
@@ -52,6 +56,18 @@ body {
 }
 
 .btn-new:hover {
+    background-color: rgba(var(--color-main), .2);
+}
+
+.btn-new-rounded {
+    color: rgba(var(--color-main)) !important;
+    background-color: rgba(var(--color-main), .1);
+    border: none;
+    border-radius: 60px;
+    transition: 0.3s ease all;
+}
+
+.btn-new-rounded:hover, .btn-new-rounded:focus {
     background-color: rgba(var(--color-main), .2);
 }
 

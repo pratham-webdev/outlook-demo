@@ -1,8 +1,4 @@
 const topLayer = `
-<div class="d-flex align-items-center justify-content-between px-3 pt-3 pb-2">
-    <h4 class="text-header m-0">Outlook Add-In</h4>
-    <button class="btn btn-sm btn-new"><i class="fs-5 fa-solid fa-xmark"></i></button>
-</div>
 <div id="main-tabs" data-title="Hello" data-intro='Hello step one!'>
     <ul class="nav">
         <li class="nav-item">
