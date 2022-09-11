@@ -7,22 +7,21 @@ const mainCategoriesList = [{
             id:'cm-category-contracts',
             name:'Contracts',
             padding:'ps-4',
-            func:`toggleCategoryCheckboxes('Contracts')`,
             items: [
                 {
-                    id:1,
+                    id:'cm-cc-1',
                     name:'Breach of Contract',
                 },
                 {
-                    id:2,
+                    id:'cm-cc-2',
                     name:'Breach Of Warranty',
                 },
                 {
-                    id:3,
+                    id:'cm-cc-3',
                     name:'Confidentiality Breach',
                 },
                 {
-                    id:4,
+                    id:'cm-cc-4',
                     name:'Breach of Trust',
                 },
             ],
@@ -31,22 +30,21 @@ const mainCategoriesList = [{
             id:'cm-category-environmental',
             name:'Environmental',
             padding: 'ps-4',
-            func:`toggleCategoryCheckboxes('Environmental')`,
             items: [
                 {
-                    id:1,
+                    id:'cm-ce-1',
                     name:'Remediation Site',
                 },
                 {
-                    id:2,
+                    id:'cm-ce-2',
                     name:'Water',
                 },
                 {
-                    id:3,
+                    id:'cm-ce-3',
                     name:'Audits',
                 },
                 {
-                    id:4,
+                    id:'cm-ce-4',
                     name:'Land Use',
                 },
             ],
@@ -55,22 +53,21 @@ const mainCategoriesList = [{
             id:'cm-category-regulatory',
             name:'Regulatory and Compliance',
             padding: 'ps-4',
-            func:`toggleCategoryCheckboxes('Regulatory and Compliance')`,
             items: [
                 {
-                    id:1,
+                    id:'cm-cr-1',
                     name:'Labor Benefits'
                 },
                 {
-                    id:2,
+                    id:'cm-cr-2',
                     name:'Money Laundering'
                 },
                 {
-                    id:3,
+                    id:'cm-cr-3',
                     name:'Business Conduct'
                 },
                 {
-                    id:4,
+                    id:'cm-cr-4',
                     name:'SEC Filings'
                 },
             ],
@@ -79,22 +76,21 @@ const mainCategoriesList = [{
             id:'cm-category-liability',
             name:'General Liability/Claim',
             padding: 'ps-4',
-            func:`toggleCategoryCheckboxes('General Liability/Claim')`,
             items: [
                 {
-                    id:1,
+                    id:'cm-cl-1',
                     name:'Premise'
                 },
                 {
-                    id:2,
+                    id:'cm-cl-2',
                     name:'Product Liability'
                 },
                 {
-                    id:3,
+                    id:'cm-cl-3',
                     name:'Bodily Injury'
                 },
                 {
-                    id:4,
+                    id:'cm-cl-4',
                     name:'Property Damage'
                 },
             ],
@@ -121,9 +117,9 @@ function createCategoryListItems(el) {
     return `
     <div class="mb-2">
         <div class="hover d-flex align-items-center rounded w-100 ${el.padding ? '' : 'ps-4'}">
-           ${el.padding ? `<button class="btn" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#${el.id}" ${el.func ? `onclick=${el.func}` : ''}></button>` : '' }
+           ${el.padding ? `<button class="btn" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#${el.id}"></button>` : '' }
             <div class="d-flex" tabindex="0" title="${el.name}">
-                <input type="checkbox" class="form-check-input me-2" id="${el.id}" style="display:block !important">
+                <input type="checkbox" class="form-check-input me-2 category-triggers" id="${el.id}" name="${el.name}" style="display:block !important">
                 ${el.name}
             </div>
         </div>
@@ -152,3 +148,17 @@ $('#add-categories-panel-sub').append(addCategoriesLitebox);
 
 //triggering jquery to initiate dom building
 $('#add-categories-list').append(createCategoryListTemplate(mainCategoriesList));
+
+
+$('.category-triggers').on('click', function(){
+    let tempBoolean = $(this).prop('checked')
+    let tempName = $(this).attr('name');
+    let tempID = $(this).attr('id');
+   if(tempBoolean === true){
+    createCategoryContainer(tempID,tempName);
+   }
+   else{
+    deleteCategoryContainer("#"+tempID);
+   }
+
+});

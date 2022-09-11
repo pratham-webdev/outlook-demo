@@ -46,7 +46,7 @@ const formItems = [
 //create the parent for form category container
 function createParentCategoryContainer(el) {
     return `
-    <div class="p-3 bg-white mt-2">
+    <div id="${el.id}" class="p-3 bg-white mt-2">
     <h6 class="m-0 pb-2">${el.name}</h6>  
     ${el.items.map(createCategoryFormFields).join('')}
     </div>`
@@ -88,10 +88,10 @@ function createCategoryFormFields(el) {
 }
 
 //creating category container 
-function createCategoryContainer(el) {
+function createCategoryContainer(id,name) {
     let tempCategory = {
-        id: 1,
-        name: el,
+        id: id,
+        name: name,
         items: formItems.slice(Math.floor(Math.random() * formItems.length))
     }
     let tempcontainer = createParentCategoryContainer(tempCategory);
@@ -99,12 +99,8 @@ function createCategoryContainer(el) {
 }
 
 //deleting category container
-function deleteCategoryContainer() {
-    if ($('#card-container').children().length > 2) {
-        $('#card-container').children().last().remove();
-    }
-}
-
-function toggleCategoryCheckboxes(el){
-    
+function deleteCategoryContainer(el) {
+    // if ($('#card-container').children().length > 2) {
+        $('#card-container').children().remove(el);
+    // }
 }
