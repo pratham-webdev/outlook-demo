@@ -119,7 +119,7 @@ function createCategoryListItems(el) {
         <div class="hover d-flex align-items-center rounded w-100 ${el.padding ? '' : 'ps-4'}">
            ${el.padding ? `<button class="btn" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#${el.id}"></button>` : '' }
             <div class="d-flex" tabindex="0" title="${el.name}">
-                <input type="checkbox" class="form-check-input me-2 category-triggers" id="${el.id}" name="${el.name}" style="display:block !important">
+                <input type="checkbox" class="form-check-input me-2 category-triggers" val="${el.id}" name="${el.name}" style="display:block !important">
                 ${el.name}
             </div>
         </div>
@@ -153,7 +153,7 @@ $('#add-categories-list').append(createCategoryListTemplate(mainCategoriesList))
 $('.category-triggers').on('click', function(){
     let tempBoolean = $(this).prop('checked')
     let tempName = $(this).attr('name');
-    let tempID = $(this).attr('id');
+    let tempID = $(this).attr('val');
    if(tempBoolean === true){
     createCategoryContainer(tempID,tempName);
    }

@@ -6,12 +6,27 @@ const categorySection = `
 </div>
 `;
 //default general matter info section
-const generalInfoSection = `
+const categoryGeneralInfoSection = `
 <div class="p-3 bg-white mt-2">
 <h6 class="m-0 pb-2">General Information</h6>  
 <div class="mb-3">
   <label for="matter-name" class="form-label">Matter Name</label>
   <input type="text" class="form-control" id="matter-name" placeholder="Matter Name 123">
 </div>
+</div>
+`;
+
+let categoryButtonSectionStyle = `
+position: absolute;
+width: 100%;
+bottom: 10px;
+`
+
+//default general matter info section
+const categoryButtonSection = `
+<div class="p-3 border-top bg-white" style="${categoryButtonSectionStyle}">
+<div class="d-flex align-items-center justify-content-between">
+<button class="btn btn-sm btn-outline-primary flex-grow-1 me-1">Cancel</button>
+<button class="btn btn-sm btn-primary flex-grow-1 ms-1">Save</button>
 </div>
 `;
