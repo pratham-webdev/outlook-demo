@@ -14,7 +14,7 @@ const topLayer = `
 </div>
 <div id="search-bar" class="p-3" data-title="Hello" data-intro='Hello step one!'>
     <form class="d-flex" style="height: 3vh;">
-        <button class="btn btn-sm btn-new me-2" title="Create a Matter" onclick="MatterCreationScreen()"><i class="fs-5 fa-solid fa-plus"></i></button>
+        <button id="create-matter-icon-button" class="btn btn-sm btn-new me-2" title="Create a Matter" onclick="MatterCreationScreen()"><i class="fs-5 fa-solid fa-plus"></i></button>
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" title="Search">
         <button class="btn btn-sm btn-new" title="Filters"><i class="fs-5 fa-solid fa-sliders"></i></button>
     </form>

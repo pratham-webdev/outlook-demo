@@ -89,13 +89,17 @@ width:100%;
 `
 
 function createMatters(){
+    //create matter button template
     let createMatterButton = `<div style="${createMatterButtonStyle}">
     <button class="btn btn-sm btn-primary btn-quick ms-3" type="button" id="create-a-matter-button" title="Create a Matter" onclick="MatterCreationScreen()">
     <i class="fa-solid fa-plus me-1"></i>
     Create a Matter
     </button>
     </div>`
-    mattersArr = matters.map(el => cardTemplate(el)).join("") + createMatterButton;
+    //enabling create matter icon
+    $('#create-matter-icon-button').attr('disabled', false);
+    //creating matters array with create matter button
+    mattersArr = matters.map(el => cardTemplate(el)).join("") + createMatterButton; //added create matter button here
     $('#doc-title-container').empty();
     $('#quick-nav-panel').removeClass('show');
     $('#quick-nav-button').hide();
