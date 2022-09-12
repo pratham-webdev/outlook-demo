@@ -42,7 +42,7 @@ function saveMatterCreation() {
             name: tempName,
             icon: 'fa-briefcase',
             docs: true,
-            func:`createMattersDetails.call(this)`
+            func:`createMattersDetails(${tempName})`
         }
         matters.unshift(tempMatterObj); //adding the new matter object to the start of the array
         createDefaultTopLayer(); //creating default top layer
