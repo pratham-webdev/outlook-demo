@@ -49,9 +49,9 @@ function createParentCategoryContainer(el) {
     <div id="${el.id}" class="p-3 bg-white mt-2">
         <div class="pb-1 border-bottom d-flex align-items-center justify-content-between">
             <h6 class="m-0 pb-2">${el.name}</h6>
-            <button class="btn btn-sm btn-new" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#${el.id}-sub">
+            <a class="btn btn-sm btn-new" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#${el.id}-sub">
             <i class="fs-6 fa-solid fa-chevron-down rotate"></i>
-            </button>
+            </a>
         </div>
         <div id="${el.id}-sub" class="pt-3 collapse show">
         ${el.items.map(createCategoryFormFields).join('')}
