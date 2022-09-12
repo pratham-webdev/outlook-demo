@@ -14,8 +14,9 @@ const topLayer = `
 </div>
 <div id="search-bar" class="p-3" data-title="Hello" data-intro='Hello step one!'>
     <form class="d-flex" style="height: 3vh;">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-sm btn-new"><i class="fs-5 fa-solid fa-sliders"></i></button>
+        <button class="btn btn-sm btn-new me-2" title="Create a Matter" onclick="MatterCreationScreen()"><i class="fs-5 fa-solid fa-plus"></i></button>
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" title="Search">
+        <button class="btn btn-sm btn-new" title="Filters"><i class="fs-5 fa-solid fa-sliders"></i></button>
     </form>
 </div>
 <div id="sub-tabs" class="px-3 pt-2">
@@ -55,6 +56,9 @@ const topLayer = `
     </div>
 </div>`
 
+function createDefaultTopLayer(){
+    $('#top-layer').empty();
+    $('#top-layer').prepend(topLayer);
+}
 
-
-$('#top-layer').prepend(topLayer);
+createDefaultTopLayer();

@@ -1,3 +1,8 @@
+//create form here
+const matterSubmissionForm = `
+<form id="matter-submission-form" class="needs-validation" novalidate></form>
+`
+
 //select category section
 const categorySection = `
 <div class="p-3 bg-white">
@@ -11,7 +16,7 @@ const categoryGeneralInfoSection = `
 <h6 class="m-0 pb-2">General Information</h6>  
 <div class="mb-3">
   <label for="matter-name" class="form-label">Matter Name</label>
-  <input type="text" class="form-control" id="matter-name" placeholder="Matter Name 123">
+  <input type="text" class="form-control" id="matter-name" placeholder="Matter Name 123" required>
 </div>
 </div>
 `;
@@ -19,14 +24,14 @@ const categoryGeneralInfoSection = `
 let categoryButtonSectionStyle = `
 position: absolute;
 width: 100%;
-bottom: 10px;
+bottom: 0;
 `
 
 //default general matter info section
 const categoryButtonSection = `
 <div class="p-3 border-top bg-white" style="${categoryButtonSectionStyle}">
 <div class="d-flex align-items-center justify-content-between">
-<button class="btn btn-sm btn-outline-primary flex-grow-1 me-1">Cancel</button>
-<button class="btn btn-sm btn-primary flex-grow-1 ms-1">Save</button>
+<button class="btn btn-sm btn-outline-primary flex-grow-1 me-1" onclick="cancelMatterCreation()">Cancel</button>
+<button type="submit" class="btn btn-sm btn-primary flex-grow-1 ms-1" onclick="saveMatterCreation()">Save</button>
 </div>
 `;

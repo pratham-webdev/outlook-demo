@@ -102,12 +102,13 @@ function createCategoryContainer(id,name) {
         items: formItems.slice(Math.floor(Math.random() * formItems.length))
     }
     let tempcontainer = createParentCategoryContainer(tempCategory);
-    $('#card-container').append(tempcontainer);
+    $('#matter-submission-form').append(tempcontainer);
+    formValidation();
 }
 
 //deleting category container
 function deleteCategoryContainer(el) {
     // if ($('#card-container').children().length > 2) {
-        $('#card-container').children().remove(el);
+        $('#matter-submission-form').children().remove(el);
     // }
 }

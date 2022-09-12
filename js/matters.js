@@ -1,86 +1,101 @@
 const matters = [
     {
         id:1,
-        name:'Q10834534 - The State vs Isabella',
+        name:'Q10834534 - Hans Delivery vs. B Willis',
         icon:'fa-briefcase',
         docs:true,
-        func:`createMattersDetails()`
+        func:`createMattersDetails.call(this)`
     },
     {
         id:2,
-        name:'Q10834534 - The State vs Isabella',
+        name:'Q10834535 - Jordan P vs Dukemariott',
         icon:'fa-briefcase',
         docs:true,
-        func:`createMattersDetails()`
+        func:`createMattersDetails.call(this)`
     },
     {
         id:3,
-        name:'Q10834534 - The State vs Isabella',
+        name:'Q10834536 - Tyler P vs. Madea',
         icon:'fa-briefcase',
         docs:true,
-        func:`createMattersDetails()`
+        func:`createMattersDetails.call(this)`
     },
     {
         id:4,
-        name:'Q10834534 - The State vs Isabella',
+        name:'Q10834537 - Ashford Labs vs. Bedford Tech',
         icon:'fa-briefcase',
         docs:true,
-        func:`createMattersDetails()`
+        func:`createMattersDetails.call(this)`
     },
     {
         id:5,
-        name:'Q10834534 - The State vs Isabella',
+        name:'Q10834538 - PPVC vs. LLPD',
         icon:'fa-briefcase',
         docs:true,
-        func:`createMattersDetails()`
+        func:`createMattersDetails.call(this)`
     },
     {
         id:6,
-        name:'Q10834534 - The State vs Isabella',
+        name:'Q10834539 - Marina Lee vs. The City Council',
         icon:'fa-briefcase',
         docs:true,
-        func:`createMattersDetails()`
+        func:`createMattersDetails.call(this)`
     },
     {
         id:7,
-        name:'Q10834534 - The State vs Isabella',
+        name:'Q10834540 - Akira K vs. Consulate',
         icon:'fa-briefcase',
         docs:true,
-        func:`createMattersDetails()`
+        func:`createMattersDetails.call(this)`
     },
     {
         id:8,
-        name:'Q10834534 - The State vs Isabella',
+        name:'Q10834541 - Wan vs. Warner Brothers Inc.',
         icon:'fa-briefcase',
         docs:true,
-        func:`createMattersDetails()`
+        func:`createMattersDetails.call(this)`
     },
     {
         id:9,
-        name:'Q10834534 - The State vs Isabella',
+        name:'Q10834542 - James vs. Warner',
         icon:'fa-briefcase',
         docs:true,
-        func:`createMattersDetails()`
+        func:`createMattersDetails.call(this)`
     },
     {
         id:10,
-        name:'Q10834534 - The State vs Isabella',
+        name:'Q10834543 - Marvin vs. International Space Station',
         icon:'fa-briefcase',
         docs:true,
-        func:`createMattersDetails()`
+        func:`createMattersDetails.call(this)`
     },
     {
         id:11,
-        name:'Q10834534 - The State vs Isabella',
+        name:'Q10834544 - John Doe vs. Katherine Langford',
         icon:'fa-briefcase',
         docs:true,
-        func:`createMattersDetails()`
+        func:`createMattersDetails.call(this)`
     },
 ]
 
-let mattersArr = matters.map(el => cardTemplate(el)).join("");
+let mattersArr = [];
+
+let createMatterButtonStyle = `
+display:flex;
+justify-content:center;
+position:absolute;
+bottom: 15px;
+width:100%;
+`
 
 function createMatters(){
+    let createMatterButton = `<div style="${createMatterButtonStyle}">
+    <button class="btn btn-sm btn-primary btn-quick ms-3" type="button" id="create-a-matter-button" title="Create a Matter" onclick="MatterCreationScreen()">
+    <i class="fa-solid fa-plus me-1"></i>
+    Create a Matter
+    </button>
+    </div>`
+    mattersArr = matters.map(el => cardTemplate(el)).join("") + createMatterButton;
     $('#doc-title-container').empty();
     $('#quick-nav-panel').removeClass('show');
     $('#quick-nav-button').hide();
