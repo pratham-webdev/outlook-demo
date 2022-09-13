@@ -66,7 +66,7 @@ function createCategoryFormFields(el) {
         return `
         <div class="mb-3">
         <label for="${el.id}" class="form-label">${el.name}</label>
-        <select class="form-select">
+        <select class="form-select" tabindex="0">
                 ${el.options.map(createSubFormFields).join('')}
         </select>
         </div>`
@@ -75,7 +75,7 @@ function createCategoryFormFields(el) {
     else if (el.type === 'checkbox') {
         return `
         <div class="mb-3 form-check">
-            <input type=${el.type} class="form-check-input" id="${el.id}" style="display:block !important">
+            <input type=${el.type} class="form-check-input" id="${el.id}" style="display:block !important" tabindex="0" required>
             <label for="${el.id}" class="form-check-label">${el.name}</label>
         </div>`
     }
@@ -84,7 +84,7 @@ function createCategoryFormFields(el) {
         return `
     <div class="mb-3">
         <label for="${el.id}" class="form-label">${el.name}</label>
-        <input type=${el.type} class="form-control" id="${el.id}" placeholder="${el.placeholder}">
+        <input type=${el.type} class="form-control" id="${el.id}" placeholder="${el.placeholder}" tabindex="0">
     </div>`
     }
 

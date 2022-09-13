@@ -1,97 +1,97 @@
 const mainCategoriesList = [{
-    id:'cm-category-disputes',
-    name:'Disputes',
-    padding:'ps-3',
-    items:[
+    id: 'cm-category-disputes',
+    name: 'Disputes',
+    padding: 'ps-3',
+    items: [
         {
-            id:'cm-category-contracts',
-            name:'Contracts',
-            padding:'ps-4',
+            id: 'cm-category-contracts',
+            name: 'Contracts',
+            padding: 'ps-4',
             items: [
                 {
-                    id:'cm-cc-1',
-                    name:'Breach of Contract',
+                    id: 'cm-cc-1',
+                    name: 'Breach of Contract',
                 },
                 {
-                    id:'cm-cc-2',
-                    name:'Breach Of Warranty',
+                    id: 'cm-cc-2',
+                    name: 'Breach Of Warranty',
                 },
                 {
-                    id:'cm-cc-3',
-                    name:'Confidentiality Breach',
+                    id: 'cm-cc-3',
+                    name: 'Confidentiality Breach',
                 },
                 {
-                    id:'cm-cc-4',
-                    name:'Breach of Trust',
+                    id: 'cm-cc-4',
+                    name: 'Breach of Trust',
                 },
             ],
         },
         {
-            id:'cm-category-environmental',
-            name:'Environmental',
+            id: 'cm-category-environmental',
+            name: 'Environmental',
             padding: 'ps-4',
             items: [
                 {
-                    id:'cm-ce-1',
-                    name:'Remediation Site',
+                    id: 'cm-ce-1',
+                    name: 'Remediation Site',
                 },
                 {
-                    id:'cm-ce-2',
-                    name:'Water',
+                    id: 'cm-ce-2',
+                    name: 'Water',
                 },
                 {
-                    id:'cm-ce-3',
-                    name:'Audits',
+                    id: 'cm-ce-3',
+                    name: 'Audits',
                 },
                 {
-                    id:'cm-ce-4',
-                    name:'Land Use',
+                    id: 'cm-ce-4',
+                    name: 'Land Use',
                 },
             ],
         },
         {
-            id:'cm-category-regulatory',
-            name:'Regulatory and Compliance',
+            id: 'cm-category-regulatory',
+            name: 'Regulatory and Compliance',
             padding: 'ps-4',
             items: [
                 {
-                    id:'cm-cr-1',
-                    name:'Labor Benefits'
+                    id: 'cm-cr-1',
+                    name: 'Labor Benefits'
                 },
                 {
-                    id:'cm-cr-2',
-                    name:'Money Laundering'
+                    id: 'cm-cr-2',
+                    name: 'Money Laundering'
                 },
                 {
-                    id:'cm-cr-3',
-                    name:'Business Conduct'
+                    id: 'cm-cr-3',
+                    name: 'Business Conduct'
                 },
                 {
-                    id:'cm-cr-4',
-                    name:'SEC Filings'
+                    id: 'cm-cr-4',
+                    name: 'SEC Filings'
                 },
             ],
         },
         {
-            id:'cm-category-liability',
-            name:'General Liability/Claim',
+            id: 'cm-category-liability',
+            name: 'General Liability/Claim',
             padding: 'ps-4',
             items: [
                 {
-                    id:'cm-cl-1',
-                    name:'Premise'
+                    id: 'cm-cl-1',
+                    name: 'Premise'
                 },
                 {
-                    id:'cm-cl-2',
-                    name:'Product Liability'
+                    id: 'cm-cl-2',
+                    name: 'Product Liability'
                 },
                 {
-                    id:'cm-cl-3',
-                    name:'Bodily Injury'
+                    id: 'cm-cl-3',
+                    name: 'Bodily Injury'
                 },
                 {
-                    id:'cm-cl-4',
-                    name:'Property Damage'
+                    id: 'cm-cl-4',
+                    name: 'Property Damage'
                 },
             ],
         },
@@ -117,17 +117,17 @@ function createCategoryListItems(el) {
     return `
     <div class="mb-2">
         <div class="hover d-flex align-items-center rounded w-100 ${el.padding ? '' : 'ps-4'}">
-           ${el.padding ? `<button class="btn" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#${el.id}"></button>` : '' }
+           ${el.padding ? `<button class="btn" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#${el.id}"></button>` : ''}
             <div class="d-flex" tabindex="0" title="${el.name}">
                 <input type="checkbox" class="form-check-input me-2 category-triggers" val="${el.id}" name="${el.name}" style="display:block !important">
                 ${el.name}
             </div>
         </div>
-        ${el.items ? 
+        ${el.items ?
             `<div id="${el.id}" class="collapse show ${el.padding ? el.padding : 'ps-2'}">
             ${createCategoryList(el.items)}
-             </div>` 
-             : ''}
+             </div>`
+            : ''}
   </div>`;
 }
 
@@ -143,22 +143,25 @@ const addCategoriesLitebox = `<div class="litebox m-4">
 </div>
 </div>`
 
-//adding the litebox to the modal base in index html
-$('#add-categories-panel-sub').append(addCategoriesLitebox);
+// function to buildCategoryModal
+function buildCategoryModal() {
+    $('#add-categories-panel-sub').empty();
+    //adding the litebox to the modal base in index html
+    $('#add-categories-panel-sub').append(addCategoriesLitebox);
 
-//triggering jquery to initiate dom building
-$('#add-categories-list').append(createCategoryListTemplate(mainCategoriesList));
+    //triggering jquery to initiate dom building
+    $('#add-categories-list').append(createCategoryListTemplate(mainCategoriesList));
 
-
-$('.category-triggers').on('click', function(){
-    let tempBoolean = $(this).prop('checked')
-    let tempName = $(this).attr('name');
-    let tempID = $(this).attr('val');
-   if(tempBoolean === true){
-    createCategoryContainer(tempID,tempName);
-   }
-   else{
-    deleteCategoryContainer("#"+tempID);
-   }
-
-});
+    //adding category checkbox event listeners
+    $('.category-triggers').on('click', function () {
+        let tempBoolean = $(this).prop('checked')
+        let tempName = $(this).attr('name');
+        let tempID = $(this).attr('val');
+        if (tempBoolean === true) {
+            createCategoryContainer(tempID, tempName);
+        }
+        else {
+            deleteCategoryContainer("#" + tempID);
+        }
+    });
+}

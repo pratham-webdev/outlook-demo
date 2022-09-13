@@ -6,6 +6,7 @@ function MatterCreationScreen() {
     $('#card-container').append(matterSubmissionForm);//create matter submission form
     $('#matter-submission-form').append(categorySection, categoryGeneralInfoSection, categoryButtonSection); // create container layer items
     formValidation();
+    buildCategoryModal(); //creating the category modal fresh
 }
 
 function formValidation(){
@@ -42,11 +43,12 @@ function saveMatterCreation() {
             name: tempName,
             icon: 'fa-briefcase',
             docs: true,
-            func:`createMattersDetails(${tempName})`
+            func:`createMattersDetails('${tempName}')`
         }
         matters.unshift(tempMatterObj); //adding the new matter object to the start of the array
         createDefaultTopLayer(); //creating default top layer
         createMatters(); // calling create Matters function, to create the default view
+        showMatterToast();
     }
     else{
         
