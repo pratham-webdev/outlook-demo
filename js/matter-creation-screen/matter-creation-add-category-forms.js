@@ -66,7 +66,7 @@ function createCategoryFormFields(el) {
         return `
         <div class="mb-3">
         <label for="${el.id}" class="form-label">${el.name}</label>
-        <select class="form-select" tabindex="0">
+        <select id="${el.id}" class="form-select" tabindex="0">
                 ${el.options.map(createSubFormFields).join('')}
         </select>
         </div>`
@@ -101,14 +101,15 @@ function createCategoryContainer(id,name) {
         name: name,
         items: formItems.slice(Math.floor(Math.random() * formItems.length))
     }
+    
     let tempcontainer = createParentCategoryContainer(tempCategory);
     $('#matter-submission-form').append(tempcontainer);
     formValidation();
 }
 
 //deleting category container
-function deleteCategoryContainer(el) {
+function deleteCategoryContainer(id) {
     // if ($('#card-container').children().length > 2) {
-        $('#matter-submission-form').children().remove(el);
+        $('#matter-submission-form').children().remove("#" + id);
     // }
 }

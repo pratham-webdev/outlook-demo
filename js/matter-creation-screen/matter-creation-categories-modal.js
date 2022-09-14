@@ -143,6 +143,26 @@ const addCategoriesLitebox = `<div class="litebox m-4">
 </div>
 </div>`
 
+//primary category container div template here
+const primaryCategoryContainer = `
+<div class="px-3 py-2">
+        <label for="primary-category-container" class="form-label">Primary Category</label>
+        <select id="primary-category-container" class="form-select" tabindex="0">
+        <option value="1">Disputes</option>     
+        </select>
+</div>
+`
+//create primary categories on click as a dropdown option
+function createPrimaryCategoryOption(id,name){
+    let tempOption = `<option id="option-${id}" value="${id}">${name}</option>`;
+    $('#primary-category-container').append(tempOption);
+}
+
+//delete primary categories on click as a dropdown option
+function deletePrimaryCategoryOption(id){
+    $('#primary-category-container').children().remove(`#option-${id}`);
+}
+
 // function to buildCategoryModal
 function buildCategoryModal() {
     $('#add-categories-panel-sub').empty();
@@ -150,7 +170,7 @@ function buildCategoryModal() {
     $('#add-categories-panel-sub').append(addCategoriesLitebox);
 
     //triggering jquery to initiate dom building
-    $('#add-categories-list').append(createCategoryListTemplate(mainCategoriesList));
+    $('#add-categories-list').append(primaryCategoryContainer,createCategoryListTemplate(mainCategoriesList));
 
     //adding category checkbox event listeners
     $('.category-triggers').on('click', function () {
@@ -158,10 +178,16 @@ function buildCategoryModal() {
         let tempName = $(this).attr('name');
         let tempID = $(this).attr('val');
         if (tempBoolean === true) {
+            //create a category forms container
             createCategoryContainer(tempID, tempName);
+            //create a primary category dropdown option
+            createPrimaryCategoryOption(tempID, tempName)
         }
         else {
-            deleteCategoryContainer("#" + tempID);
+            //delete a category forms container
+            deleteCategoryContainer(tempID);
+            //delete a primary category dropdown option
+            deletePrimaryCategoryOption(tempID);
         }
     });
 }
