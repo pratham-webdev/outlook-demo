@@ -119,7 +119,8 @@ function createCategoryListItems(el) {
         <div class="hover d-flex align-items-center rounded w-100 ${el.padding ? '' : 'ps-4'}">
            ${el.padding ? `<button class="btn" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#${el.id}"></button>` : ''}
             <div class="d-flex" tabindex="0" title="${el.name}">
-                <input type="checkbox" class="form-check-input me-2 category-triggers" val="${el.id}" name="${el.name}" style="display:block !important">
+                <input type="checkbox" class="form-check-input me-2 category-triggers" val="${el.id}" name="${el.name}" style="display:block !important" 
+                ${el.name === 'Disputes' ? 'Checked' : ''}>
                 ${el.name}
             </div>
         </div>
@@ -163,6 +164,12 @@ function deletePrimaryCategoryOption(id){
     $('#primary-category-container').children().remove(`#option-${id}`);
 }
 
+function getCategoryCheckedItems(){
+    let tempNumber = $('.category-triggers:checked').length;
+    let tempName = `${tempNumber} Selected ${tempNumber > 1 ? 'Categories' : 'Category'}`;
+    $('#select-category-open-modal').text(tempName);
+}
+
 // function to buildCategoryModal
 function buildCategoryModal() {
     $('#add-categories-panel-sub').empty();
@@ -181,13 +188,17 @@ function buildCategoryModal() {
             //create a category forms container
             createCategoryContainer(tempID, tempName);
             //create a primary category dropdown option
-            createPrimaryCategoryOption(tempID, tempName)
+            createPrimaryCategoryOption(tempID, tempName);
+            //update the number in selected categories
+            getCategoryCheckedItems();
         }
         else {
             //delete a category forms container
             deleteCategoryContainer(tempID);
             //delete a primary category dropdown option
             deletePrimaryCategoryOption(tempID);
+            //update the number in selected categories
+            getCategoryCheckedItems();
         }
     });
 }

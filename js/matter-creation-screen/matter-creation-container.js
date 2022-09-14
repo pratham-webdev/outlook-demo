@@ -7,7 +7,7 @@ const matterSubmissionForm = `
 const categorySection = `
 <div class="p-3 bg-white">
 <h6 class="m-0">Select Categories</h6>  
-<button type="button" class="btn btn-sm btn-new-rounded mt-2" onclick="toggleLitebox('#add-categories-panel')">1 Selected Category<i class="fa-solid fa-circle-plus ms-3"></i></button>
+<button id="select-category-open-modal" type="button" class="btn btn-sm btn-new-rounded mt-2" onclick="toggleLitebox('#add-categories-panel');">1 Selected Category<i class="fa-solid fa-circle-plus ms-3"></i></button>
 </div>
 `;
 //default general matter info section
