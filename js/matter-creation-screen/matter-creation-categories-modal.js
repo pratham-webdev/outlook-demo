@@ -164,11 +164,12 @@ function deletePrimaryCategoryOption(id){
     $('#primary-category-container').children().remove(`#option-${id}`);
 }
 
-function getCategoryCheckedItems(){
-    let tempNumber = $('.category-triggers:checked').length;
-    let tempName = `${tempNumber} Selected ${tempNumber > 1 ? 'Categories' : 'Category'}`;
-    $('#select-category-open-modal').text(tempName);
-}
+//update selected categories button
+// function getCategoryCheckedItems(){
+//     let tempNumber = $('.category-triggers:checked').length;
+//     let tempName = `${tempNumber} Selected ${tempNumber > 1 ? 'Categories' : 'Category'}`;
+//     $('#select-category-open-modal').text(tempName);
+// }
 
 // function to buildCategoryModal
 function buildCategoryModal() {
@@ -189,16 +190,20 @@ function buildCategoryModal() {
             createCategoryContainer(tempID, tempName);
             //create a primary category dropdown option
             createPrimaryCategoryOption(tempID, tempName);
+            //update categories in the selected categories section
+            createSelectedCategoriesSection(tempID, tempName);
             //update the number in selected categories
-            getCategoryCheckedItems();
+            // getCategoryCheckedItems();
         }
         else {
             //delete a category forms container
             deleteCategoryContainer(tempID);
             //delete a primary category dropdown option
             deletePrimaryCategoryOption(tempID);
+            //delete categories in the selected categories section
+            deleteSelectedCategoriesSection(tempID, tempName);
             //update the number in selected categories
-            getCategoryCheckedItems();
+            // getCategoryCheckedItems();
         }
     });
 }

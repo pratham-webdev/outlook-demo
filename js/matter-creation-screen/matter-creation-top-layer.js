@@ -46,7 +46,6 @@ const matterCreationTopLayer = `
     </ul>
 </div>
 <div class="px-3 pt-3 pb-2 d-flex align-items-center" style="${TopLayerSubHeaderStyle}">
-    <i class="fs-6 fa-solid fa-pen-to-square me-3"></i>
     <h6 class="m-0">Create a dispute</h6>  
 </div>`
 

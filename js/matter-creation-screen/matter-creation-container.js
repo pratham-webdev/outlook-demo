@@ -6,10 +6,29 @@ const matterSubmissionForm = `
 //select category section
 const categorySection = `
 <div class="p-3 bg-white">
-<h6 class="m-0">Select Categories</h6>  
-<button type="button" class="btn btn-sm btn-new-rounded mt-2" onclick="toggleLitebox('#add-categories-panel');"><span id="select-category-open-modal">1 Selected Category</span><i class="fa-solid fa-circle-plus ms-3"></i></button>
+  <div class="d-flex justify-content-between align-items-center">
+    <h6 class="m-0">Select Categories</h6>  
+    <button type="button" class="btn btn-sm btn-new-rounded" onclick="toggleLitebox('#add-categories-panel');"><i class="fa-solid fa-circle-plus me-2"></i>
+    Add
+    </button>
+  </div>
+  <div id="added-categories-list" class="d-flex flex-wrap">
+      <div class="card rounded-pill px-3 py-1 text-center accent-color mt-2 me-1">Disputes</div>
+  </div>
 </div>
 `;
+
+//add items to the selected categories section
+function createSelectedCategoriesSection(id,name){
+  let tempDiv = `<div id="category-${id}" class="card rounded-pill px-3 py-1 text-center accent-color mt-2 me-1">${name}</div>`;
+  $('#added-categories-list').append(tempDiv);
+}
+
+//delete items from the selected categories section
+function deleteSelectedCategoriesSection(id){
+  $('#added-categories-list').children().remove(`#category-${id}`);
+}
+
 //default general matter info section
 const categoryGeneralInfoSection = `
 <div class="p-3 bg-white mt-2">
@@ -27,7 +46,7 @@ width: 100%;
 bottom: 0;
 `
 
-//default general matter info section
+//create matter button & cancel buttons
 const categoryButtonSection = `
 <div class="p-3 border-top bg-white" style="${categoryButtonSectionStyle}">
 <div class="d-flex align-items-center justify-content-between">

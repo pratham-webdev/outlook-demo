@@ -48,7 +48,7 @@ function saveMatterCreation() {
         matters.unshift(tempMatterObj); //adding the new matter object to the start of the array
         createDefaultTopLayer(); //creating default top layer
         createMatters(); // calling create Matters function, to create the default view
-        showMatterToast();
+        showMatterToast();//show the matter was successfully created
     }
     else{
         
