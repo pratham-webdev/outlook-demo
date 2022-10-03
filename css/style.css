@@ -416,3 +416,7 @@ body {
     margin: auto;
     width: 40vw;
 }
+
+.pointer{
+cursor: pointer;
+}

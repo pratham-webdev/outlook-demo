@@ -174,6 +174,7 @@ function deletePrimaryCategoryOption(id){
 // function to buildCategoryModal
 function buildCategoryModal() {
     $('#add-categories-panel-sub').empty();
+    
     //adding the litebox to the modal base in index html
     $('#add-categories-panel-sub').append(addCategoriesLitebox);
 
