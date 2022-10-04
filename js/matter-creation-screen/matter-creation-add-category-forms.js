@@ -107,7 +107,7 @@ const formItems = [
 function createParentCategoryContainer(el) {
     return `
     <div id="${el.id}" class="p-3 bg-white mt-2">
-        <div class="p-2 border-top border-bottom d-flex align-items-center justify-content-between" style="${categoryGeneralSectionStyles}">
+        <div class="py-2 px-3 border-top border-bottom d-flex align-items-center justify-content-between" style="${categoryGeneralSectionStyles}">
             <h6 class="m-0 accent-color">${el.name}</h6>
             <a class="btn btn-sm btn-new category-collapsible" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#${el.id}-sub">
             <i class="fs-6 fa-solid fa-chevron-down rotate"></i>
@@ -151,7 +151,7 @@ function createCategoryFormFields(el) {
         </div>`
     }
     //else condition for regular formfields
-    else if(el.type === 'textarea') {
+    else if (el.type === 'textarea') {
         return `
     <div class="mb-3">
         <label for="${el.id}" class="form-label">${el.name} ${el.required === true ? `<span class="text-danger fw-bold">*</span>` : ''}</label>
@@ -169,23 +169,23 @@ function createCategoryFormFields(el) {
 
     //creating dropdown options
     function createSubFormFields(el) {
-        if(el.name){
+        if (el.name) {
             return `<option value="${el.val}">${el.name}</option>`
         }
-        else{
-            return `<option value="${el.val}">` 
+        else {
+            return `<option value="${el.val}">`
         }
     }
 }
 
 //creating category container 
-function createCategoryContainer(id,name) {
+function createCategoryContainer(id, name) {
     let tempCategory = {
         id: `cat-${id}`,
         name: name,
         items: formItems.slice(Math.floor(Math.random() * formItems.length))
     }
-    
+
     let tempcontainer = createParentCategoryContainer(tempCategory);
     $('#matter-submission-form').append(tempcontainer);
     formValidation();
@@ -194,6 +194,18 @@ function createCategoryContainer(id,name) {
 //deleting category container
 function deleteCategoryContainer(id) {
     // if ($('#card-container').children().length > 2) {
-        $('#matter-submission-form').children().remove("#cat-" + id);
+    $('#matter-submission-form').children().remove("#cat-" + id);
     // }
+}
+
+
+function rotateCategoryCollapsible(){
+    $('#matter-submission-form').on('click', '.category-collapsible', function () {
+        if($(this).children('i').hasClass('rotate') === true){
+            $(this).children('i').removeClass('rotate');
+        }
+        else{
+            $(this).children('i').addClass('rotate');
+        }
+    });
 }

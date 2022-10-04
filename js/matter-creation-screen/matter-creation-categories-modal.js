@@ -195,6 +195,7 @@ function buildCategoryModal() {
             createSelectedCategoriesSection(tempID, tempName);
             //update the number in selected categories
             // getCategoryCheckedItems();
+           
         }
         else {
             //delete a category forms container
@@ -207,4 +208,6 @@ function buildCategoryModal() {
             // getCategoryCheckedItems();
         }
     });
+     //add event listener for rotate category collapsible
+     rotateCategoryCollapsible();
 }
