@@ -102,7 +102,7 @@ function createMatters(){
     mattersArr = matters.map(el => cardTemplate(el)).join("") + createMatterButton; //added create matter button here
     $('#doc-title-container').empty();
     $('#quick-nav-panel').removeClass('show');
-    $('#quick-nav-button').hide();
+    $('#quick-nav-upload-container').hide();
     $('#card-container').empty();
     $('#card-container').append(mattersArr);
     folderLevel = 0;

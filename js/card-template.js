@@ -101,6 +101,7 @@ function createMoreOptions(el) {
 
 function cardTemplate(el) {
     return `<div class="card mb-2 border-0 rounded-0" tabindex="0">
+    ${el.status ? createCardStatus(el.status) : '' /* status tags */}
     <div class="p-2 d-flex justify-content-around">
         <div class="icon d-flex"><input class="form-check-input me-3" type="checkbox" value=""><i class="fs-3 fa-solid ${el.icon} accent-color opacity-75"></i></div>
         <div class="card-details ps-3">
@@ -109,11 +110,11 @@ function cardTemplate(el) {
                 <span>Modified by John Smith</span><span class="ms-2">•</span><span
                     class="ms-2">3/22/21 1:02 PM </span>
             </div>
-           ${el.docs == true ? createDocs() : ''} 
+           ${el.docs == true ? createDocs() : '' /* doc labels */} 
         </div>
    <div>
    <button type="button" class="btn btn-sm btn-new mb-auto more-options" data-bs-toggle="dropdown" aria-expanded="false"><i class="fs-5 fa-solid fa-ellipsis-vertical accent-color"></i></button>
-    ${moreOptionsTemplate}
+    ${el.status ? '' : moreOptionsTemplate}
    </div>
     </div>
 </div>`
@@ -121,9 +122,27 @@ function cardTemplate(el) {
 
 function createDocs() {
     return `<div class="text-muted">
-    <a class="btn btn-sm btn-new p-0" href="#">Documents</a><span class="ms-2">•</span><a
-        class="ms-2 btn btn-sm btn-new p-0" href="#">Appointments</a>
+    <a class="btn btn-sm btn-new p-0" href="#">Documents</a>
+    <span class="ms-2">•</span>
+    <a class="ms-2 btn btn-sm btn-new p-0" href="#">Appointments</a>
+    <span class="ms-2">•</span>
+    <a class="ms-2 btn btn-sm btn-new p-0" href="#">Tasks</a>
 </div>`
+}
+
+function createCardStatusItems(el){
+    let tempDiv = ''
+    for(const [key, value] of Object.entries(el)) {
+        tempDiv = tempDiv+`<div class="card rounded-pill text-center accent-color mt-2 me-1 pointer task-status">${value}</div>`
+    }
+    return tempDiv;
+}
+
+function createCardStatus(el){
+     return `
+     <div class="px-2 pt-2 pb-0 d-flex flex-wrap">
+        ${createCardStatusItems(el)}
+     </div> `
 }
 
 
