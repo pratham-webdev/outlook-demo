@@ -31,6 +31,9 @@ function createMattersDetails(name){
     //disabling matter icon
     $('#create-matter-icon-button').attr('disabled', true);
     folderLevel == 0 ? createDocumentTitle(tempName) : ''; // sending name property for document title container
+    $('#sub-tabs').hide();//hiding search view, filter and sort
+    $('#search-bar').show();//showing search bar
+    $('.sidepanel-scroll').css('height','calc(100vh - 240px)');//changing scroll height to include the tabs, search bar and search views
     $('#card-container').empty();
     $('#card-container').append(mattersDetailsArr);
     $('#quick-nav-upload-container').show();

@@ -2,25 +2,35 @@
 const matterSubmissionForm = `
 <form id="matter-submission-form" class="needs-validation" novalidate></form>
 `
+let categoryGeneralSectionStyles = `
+background: rgba(0, 82, 204,.05);
+margin: -1rem -1rem 0 -1rem;
+`
 
 //select category section
 const categorySection = `
 <div class="p-3 bg-white">
-  <div class="d-flex justify-content-between align-items-center">
-    <h6 class="m-0">Select Categories</h6>  
-    <button type="button" class="btn btn-sm btn-new-rounded" onclick="toggleLitebox('#add-categories-panel');"><i class="fa-solid fa-circle-plus me-2"></i>
-    Add
+  <div class="py-2 px-3 border-top border-bottom d-flex align-items-center justify-content-between" style="${categoryGeneralSectionStyles}">
+     <h6 class="m-0 py-1 accent-color">Selected Categories</h6>
+     <button type="button" class="btn btn-sm btn-new-rounded" onclick="toggleLitebox('#add-categories-panel');"><i class="fa-solid fa-circle-plus me-2"></i>
+      Add
     </button>
   </div>
+  <div class=" py-2">
+        <label for="primary-category-container" class="form-label">Primary Category</label>
+        <select id="primary-category-container" class="form-select primary-category-container" tabindex="0">
+        <option value="1">Disputes</option>     
+        </select>
+</div>
+<label for="added-categories-list" class="form-label mb-0">Additional Categories</label>
   <div id="added-categories-list" class="d-flex flex-wrap">
-      <div class="card rounded-pill px-3 py-1 text-center accent-color mt-2 me-1 pointer" onclick="toggleLitebox('#add-categories-panel');">Disputes</div>
   </div>
 </div>
 `;
 
 //add items to the selected categories section
 function createSelectedCategoriesSection(id,name){
-  let tempDiv = `<div id="category-${id}" class="card rounded-pill px-3 py-1 text-center accent-color mt-2 me-1 pointer" onclick="toggleLitebox('#add-categories-panel');">${name}</div>`;
+  let tempDiv = `<div id="category-${id}" class="card rounded-pill px-3 py-1 text-center accent-color mt-2 me-1 pointer card-badges" onclick="toggleLitebox('#add-categories-panel');">${name}</div>`;
   $('#added-categories-list').append(tempDiv);
 }
 
@@ -29,10 +39,6 @@ function deleteSelectedCategoriesSection(id){
   $('#added-categories-list').children().remove(`#category-${id}`);
 }
 
-let categoryGeneralSectionStyles = `
-background: rgba(0, 82, 204,.05);
-margin: -1rem -1rem 0 -1rem;
-`
 
 //default general matter info section
 const categoryGeneralInfoSection = `

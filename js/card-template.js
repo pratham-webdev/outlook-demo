@@ -130,14 +130,16 @@ function createDocs() {
 </div>`
 }
 
+//creating card badges
 function createCardStatusItems(el){
     let tempDiv = ''
     for(const [key, value] of Object.entries(el)) {
-        tempDiv = tempDiv+`<div class="card rounded-pill text-center accent-color mt-2 me-1 pointer task-status">${value}</div>`
+        tempDiv = tempDiv+`<div class="card rounded-pill text-center accent-color mt-2 me-1 card-badges">${value}</div>`
     }
     return tempDiv;
 }
 
+//creating the div for the card badges
 function createCardStatus(el){
      return `
      <div class="px-2 pt-2 pb-0 d-flex flex-wrap">

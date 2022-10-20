@@ -421,9 +421,12 @@ body {
 cursor: pointer;
 }
 
-.task-status{
-    font-size: .7rem;
+.uppercase{
     text-transform: uppercase;
+}
+
+.card-badges{
+    font-size: .7rem;
     padding: .2rem .6rem;
     font-weight: 600;
 }

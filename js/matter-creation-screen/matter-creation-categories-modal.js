@@ -148,7 +148,7 @@ const addCategoriesLitebox = `<div class="litebox m-4">
 const primaryCategoryContainer = `
 <div class="px-3 py-2">
         <label for="primary-category-container" class="form-label">Primary Category</label>
-        <select id="primary-category-container" class="form-select" tabindex="0">
+        <select id="primary-category-container" class="form-select primary-category-container" tabindex="0">
         <option value="1">Disputes</option>     
         </select>
 </div>
@@ -156,12 +156,12 @@ const primaryCategoryContainer = `
 //create primary categories on click as a dropdown option
 function createPrimaryCategoryOption(id,name){
     let tempOption = `<option id="option-${id}" value="${id}">${name}</option>`;
-    $('#primary-category-container').append(tempOption);
+    $('.primary-category-container').append(tempOption);
 }
 
 //delete primary categories on click as a dropdown option
 function deletePrimaryCategoryOption(id){
-    $('#primary-category-container').children().remove(`#option-${id}`);
+    $('.primary-category-container').children().remove(`#option-${id}`);
 }
 
 //update selected categories button

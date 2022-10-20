@@ -59,6 +59,16 @@ const tasksListArray = [
             progress:'Not Started',
         }
     },
+    {
+        id:7,
+        name:'Setup next meeting with client',
+        icon:'fa-clipboard-list',
+        docs:false,
+        status: {
+            priority:'Medium',
+            progress:'Not Started',
+        }
+    },
 ]
 
 function createTasksList(){
@@ -68,7 +78,9 @@ function createTasksList(){
     Create a Task
     </button>
     </div>`
-    $('#card-container').empty();
+    $('#search-bar').hide();//hiding search bar
+    $('.sidepanel-scroll').css('height','calc(100vh - 180px)');//changing scroll height to exclude the tabs, search bar and search views
+    $('#card-container').empty();//clear card container
     $('#card-container').append(tasksListArray.map(cardTemplate).join("")+createTaskButton);
     $('#quick-nav-upload-container').hide();
     folderLevel = 2;
