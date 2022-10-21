@@ -73,7 +73,7 @@ const tasksListArray = [
 
 function createTasksList(){
     let createTaskButton = `<div style="${createMatterButtonStyle}">
-    <button class="btn btn-sm btn-primary btn-quick ms-3" type="button" id="create-a-task-button" title="Create a Task">
+    <button class="btn btn-sm btn-primary btn-quick ms-3" type="button" id="create-a-task-button" title="Create a Task" onclick="taskCreationScreen()">
     <i class="fa-solid fa-plus me-1"></i>
     Create a Task
     </button>

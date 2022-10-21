@@ -51,7 +51,8 @@ function saveMatterCreation() {
         matters.unshift(tempMatterObj); //adding the new matter object to the start of the array
         createDefaultTopLayer(); //creating default top layer
         createMatters(); // calling create Matters function, to create the default view
-        toggleToast('#matter-creation-toast');//show the matter was successfully created
+        $('#creation-toast-text').text('Matter'); //changing toast text to matter
+        toggleToast('#creation-toast');//show the matter was successfully created
         $('.category-triggers').off('click'); //removing event listener for category modal
         $('.category-collapsible').off('click');  //remove event listener for rotate category collapsible
     }

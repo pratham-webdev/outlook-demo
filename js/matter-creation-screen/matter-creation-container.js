@@ -1,16 +1,11 @@
 //create form here
 const matterSubmissionForm = `
-<form id="matter-submission-form" class="needs-validation" novalidate></form>
-`
-let categoryGeneralSectionStyles = `
-background: rgba(0, 82, 204,.05);
-margin: -1rem -1rem 0 -1rem;
-`
+<form id="matter-submission-form" class="needs-validation" novalidate></form>`
 
 //select category section
 const categorySection = `
 <div class="p-3 bg-white">
-  <div class="py-2 px-3 border-top border-bottom d-flex align-items-center justify-content-between" style="${categoryGeneralSectionStyles}">
+  <div class="py-2 px-3 border-top border-bottom d-flex align-items-center justify-content-between form-section-background">
      <h6 class="m-0 py-1 accent-color">Selected Categories</h6>
      <button type="button" class="btn btn-sm btn-new-rounded" onclick="toggleLitebox('#add-categories-panel');"><i class="fa-solid fa-circle-plus me-2"></i>
       Add
@@ -28,13 +23,13 @@ const categorySection = `
 </div>
 `;
 
-//add items to the selected categories section
+//add items as badges to the selected categories section
 function createSelectedCategoriesSection(id,name){
   let tempDiv = `<div id="category-${id}" class="card rounded-pill px-3 py-1 text-center accent-color mt-2 me-1 pointer card-badges" onclick="toggleLitebox('#add-categories-panel');">${name}</div>`;
   $('#added-categories-list').append(tempDiv);
 }
 
-//delete items from the selected categories section
+//delete items as badges from the selected categories section
 function deleteSelectedCategoriesSection(id){
   $('#added-categories-list').children().remove(`#category-${id}`);
 }
@@ -43,7 +38,7 @@ function deleteSelectedCategoriesSection(id){
 //default general matter info section
 const categoryGeneralInfoSection = `
 <div class="p-3 bg-white mt-2">
-  <div class="py-2 px-3 border-top border-bottom d-flex align-items-center justify-content-between" style="${categoryGeneralSectionStyles}">
+  <div class="py-2 px-3 border-top border-bottom d-flex align-items-center justify-content-between form-section-background">
     <h6 class="m-0 py-1 accent-color">General Information</h6>
   </div>
 <div class="mb-3 pt-2">
@@ -53,15 +48,9 @@ const categoryGeneralInfoSection = `
 </div>
 `;
 
-let categoryButtonSectionStyle = `
-position: absolute;
-width: 100%;
-bottom: 0;
-`
-
 //create matter button & cancel buttons, added a disabled button to prevent enter key from submitting the form on matter creation
 const categoryButtonSection = `
-<div class="p-3 border-top bg-white" style="${categoryButtonSectionStyle}">
+<div class="p-3 border-top bg-white form-sticky-bottom-buttons">
 <div class="d-flex align-items-center justify-content-between">
 <button type="submit" disabled style="display: none" aria-hidden="true">Disabled button to prevent enter key submission</button>
 <button class="btn btn-sm btn-outline-primary flex-grow-1 me-1" onclick="cancelMatterCreation()">Cancel</button>

@@ -13,7 +13,7 @@ body {
     color: rgba(var(--color-main));
 }
 
-.form-label{
+.form-label {
     font-size: .9rem;
 }
 
@@ -67,7 +67,8 @@ body {
     transition: 0.3s ease all;
 }
 
-.btn-new-rounded:hover, .btn-new-rounded:focus {
+.btn-new-rounded:hover,
+.btn-new-rounded:focus {
     background-color: rgba(var(--color-main), .2);
 }
 
@@ -408,7 +409,7 @@ body {
     text-overflow: ellipsis;
 }
 
-#how-to-use{
+#how-to-use {
     position: fixed;
     bottom: 10px;
     left: 0;
@@ -417,16 +418,35 @@ body {
     width: 40vw;
 }
 
-.pointer{
-cursor: pointer;
+.pointer {
+    cursor: pointer;
 }
 
-.uppercase{
+.uppercase {
     text-transform: uppercase;
 }
 
-.card-badges{
+.card-badges {
     font-size: .7rem;
     padding: .2rem .6rem;
     font-weight: 600;
+}
+
+.form-section-background {
+    background: rgba(0, 82, 204, .05);
+    margin: -1rem -1rem 0 -1rem;
+}
+
+.form-sticky-bottom-buttons {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    z-index: 99;
+}
+
+.generic-toast-style {
+    position: absolute;
+    width: 100%;
+    border-radius: 0;
+    top: 98px;
 }

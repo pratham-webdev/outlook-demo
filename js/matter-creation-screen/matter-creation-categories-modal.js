@@ -165,11 +165,11 @@ function deletePrimaryCategoryOption(id){
 }
 
 //update selected categories button
-// function getCategoryCheckedItems(){
-//     let tempNumber = $('.category-triggers:checked').length;
-//     let tempName = `${tempNumber} Selected ${tempNumber > 1 ? 'Categories' : 'Category'}`;
-//     $('#select-category-open-modal').text(tempName);
-// }
+function getCategoryCheckedItems(){
+    let tempNumber = $('.category-triggers:checked').length;
+    let tempName = `${tempNumber} Selected ${tempNumber > 1 ? 'Categories' : 'Category'}`;
+    $('#selected-categories').text(tempName);
+}
 
 // function to buildCategoryModal
 function buildCategoryModal() {
@@ -191,10 +191,10 @@ function buildCategoryModal() {
             createCategoryContainer(tempID, tempName);
             //create a primary category dropdown option
             createPrimaryCategoryOption(tempID, tempName);
-            //update categories in the selected categories section
+            //update categories as badges in the selected categories section
             createSelectedCategoriesSection(tempID, tempName);
             //update the number in selected categories
-            // getCategoryCheckedItems();
+            getCategoryCheckedItems();
            
         }
         else {
@@ -202,10 +202,10 @@ function buildCategoryModal() {
             deleteCategoryContainer(tempID);
             //delete a primary category dropdown option
             deletePrimaryCategoryOption(tempID);
-            //delete categories in the selected categories section
+            //delete categories as badges in the selected categories section
             deleteSelectedCategoriesSection(tempID, tempName);
             //update the number in selected categories
-            // getCategoryCheckedItems();
+            getCategoryCheckedItems();
         }
     });
      //add event listener for rotate category collapsible

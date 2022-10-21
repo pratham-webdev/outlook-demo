@@ -107,7 +107,7 @@ const formItems = [
 function createParentCategoryContainer(el) {
     return `
     <div id="${el.id}" class="p-3 bg-white mt-2">
-        <div class="py-2 px-3 border-top border-bottom d-flex align-items-center justify-content-between" style="${categoryGeneralSectionStyles}">
+        <div class="py-2 px-3 border-top border-bottom d-flex align-items-center justify-content-between form-section-background">
             <h6 class="m-0 accent-color">${el.name}</h6>
             <a class="btn btn-sm btn-new category-collapsible" data-bs-toggle="collapse" aria-expanded="true" data-bs-target="#${el.id}-sub">
             <i class="fs-6 fa-solid fa-chevron-down rotate"></i>
