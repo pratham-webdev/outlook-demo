@@ -172,7 +172,8 @@ function getCategoryCheckedItems(){
 }
 
 // function to buildCategoryModal
-function buildCategoryModal() {
+//modalKey is a parameter to distinguish when to create the matter form on category selection & not for tasks or appointments
+function buildCategoryModal(modalKey) {
     $('#add-categories-panel-sub').empty();
     
     //adding the litebox to the modal base in index html
@@ -188,7 +189,10 @@ function buildCategoryModal() {
         let tempID = $(this).attr('val');
         if (tempBoolean === true) {
             //create a category forms container
-            createCategoryContainer(tempID, tempName);
+            if(modalKey === true){
+                //modalKey is a parameter to distinguish when to create the matter form on category selection & not for tasks or appointments
+                createCategoryContainer(tempID, tempName);
+            }
             //create a primary category dropdown option
             createPrimaryCategoryOption(tempID, tempName);
             //update categories as badges in the selected categories section

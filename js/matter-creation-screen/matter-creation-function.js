@@ -1,12 +1,13 @@
 //creating the matter creation screen here
 function MatterCreationScreen() {
     $('#top-layer').empty();
-    $('#card-container').empty();
+    $('#card-container').empty(); //clear card container
+    $(`#doc-title-container`).hide(); //hide doc title container
     $('#top-layer').prepend(matterCreationTopLayer);// create matter top layer
     $('#card-container').append(matterSubmissionForm);//create matter submission form
     $('#matter-submission-form').append(categorySection, categoryGeneralInfoSection, categoryButtonSection); // create container layer items
     formValidation();
-    buildCategoryModal(); //creating the category modal fresh
+    buildCategoryModal(true); //creating the category modal fresh
     $('.sidepanel').append(requiredFieldsToast); //create warning modal for required fields toast 
 }
 
@@ -35,6 +36,7 @@ function cancelMatterCreation() {
     createMatters(); // calling create Matters function, to create the default view
     $('.category-triggers').off('click'); //removing event listener for category modal
     $('.category-collapsible').off('click');  //remove event listener for rotate category collapsible
+    $(`#doc-title-container`).show(); //show doc title container
 }
 
 //saving the matter which was newly created
@@ -55,6 +57,7 @@ function saveMatterCreation() {
         toggleToast('#creation-toast');//show the matter was successfully created
         $('.category-triggers').off('click'); //removing event listener for category modal
         $('.category-collapsible').off('click');  //remove event listener for rotate category collapsible
+        $(`#doc-title-container`).show(); //show doc title container
     }
     else{
       toggleToast('#required-fields-toast');//show the please enter the required fields toast warning
