@@ -11,6 +11,7 @@ ${name}</div>
 }
 
 function createDocumentTitle(name) {
+    $('#doc-title-container').show();
     $('#doc-title-container').append(documentTitle(name));
 }
 

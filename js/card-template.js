@@ -106,10 +106,7 @@ function cardTemplate(el) {
         <div class="icon d-flex"><input class="form-check-input me-3" type="checkbox" value=""><i class="fs-3 fa-solid ${el.icon} accent-color opacity-75"></i></div>
         <div class="card-details ps-3">
             <div class="card-name truncate alt-click" onClick="docMove = true; ${el.func};" title="${el.name}" tabindex="0">${el.name}</div>
-            <div class="text-muted">
-                <span>Modified by John Smith</span><span class="ms-2">•</span><span
-                    class="ms-2">3/22/21 1:02 PM </span>
-            </div>
+            ${cardTemplateDate(el.dates)}
            ${el.docs == true ? createDocs() : '' /* doc labels */} 
         </div>
    <div>
@@ -135,6 +132,7 @@ function createCardStatusItems(el){
     let tempDiv = ''
     for(const [key, value] of Object.entries(el)) {
         tempDiv = tempDiv+`<div class="card rounded-pill text-center accent-color mt-2 me-1 card-badges">${value}</div>`
+        //not using return as return terminates the loop here
     }
     return tempDiv;
 }
@@ -145,6 +143,22 @@ function createCardStatus(el){
      <div class="px-2 pt-2 pb-0 d-flex flex-wrap">
         ${createCardStatusItems(el)}
      </div> `
+}
+
+//changing card's modified/due date
+function cardTemplateDate(dates){
+    if(dates){
+        return `<div class="text-muted">
+        <span>Due Date on ${dates.endDate}</span><span class="ms-2">•</span><span
+            class="ms-2">${dates.startDate} 1:02 PM </span>
+    </div>`
+    }
+    else{
+        return `<div class="text-muted">
+        <span>Modified by John Smith</span><span class="ms-2">•</span><span
+            class="ms-2">3/22/21 1:02 PM </span>
+    </div>`
+    }
 }
 
 

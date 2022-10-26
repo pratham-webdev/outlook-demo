@@ -18,7 +18,7 @@ const requiredFieldsToast = `
 </div>
 </div>`
 
-$('.sidepanel').append(CreationToast);
+$('.sidepanel').append(CreationToast,requiredFieldsToast);
 
 function toggleToast(id){
     $(id).show();//showing matter created toast

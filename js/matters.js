@@ -100,10 +100,12 @@ function createMatters(){
     $('#create-matter-icon-button').attr('disabled', false);
     //creating matters array with create matter button
     mattersArr = matters.map(el => cardTemplate(el)).join("") + createMatterButton; //added create matter button here
-    $('#doc-title-container').empty();
+    $('#doc-title-container').empty();//clean the breadcrumbs and title
+    $('#doc-title-container').hide();//hide the div
     $('#quick-nav-panel').removeClass('show');
     $('#quick-nav-upload-container').hide();
     $('#search-bar,#sub-tabs').show();//showing search views & search bar
+    $('#doc-title-container').hide(); //hide doc title container
     $('#card-container').empty();
     $('#card-container').append(mattersArr);
     folderLevel = 0;

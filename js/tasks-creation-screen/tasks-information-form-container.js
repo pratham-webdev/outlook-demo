@@ -1,3 +1,5 @@
+let today = new Date().toISOString().slice(0, 10);
+
 const taskItems = [
     {
         id: 'tasks-subject',
@@ -17,22 +19,22 @@ const taskItems = [
         id: 'tasks-matter-name',
         name: 'Matter Name',
         type: 'text',
-        placeholder: 'Add Matter Name',
+        value: '',
         required: true,
         disabled:true,
     },
     {
-        id: 'tasks-end-date',
+        id: 'tasks-start-date',
         name: 'Start Date',
         type: 'date',
-        placeholder: 'MM/DD/YYYY',
+        value: today,
         required: true,
     },
     {
         id: 'tasks-end-date',
         name: 'End Date',
         type: 'date',
-        placeholder: 'MM/DD/YYYY',
+        value: today,
         required: true,
     },
     {
@@ -62,15 +64,15 @@ const taskItems = [
         type: 'dropdown',
         options: [
             {
-                val: 1,
+                val: 'Not Started',
                 name: 'Not Started',
             },
             {
-                val: 2,
+                val: 'In Progress',
                 name: 'In Progress',
             },
             {
-                val: 3,
+                val: 'Completed',
                 name: 'Completed',
             },
         ]
@@ -82,15 +84,15 @@ const taskItems = [
         type: 'dropdown',
         options: [
             {
-                val: 1,
+                val: 'Low',
                 name: 'Low',
             },
             {
-                val: 2,
+                val: 'Normal',
                 name: 'Normal',
             },
             {
-                val: 3,
+                val: 'High',
                 name: 'High',
             },
         ]
@@ -100,7 +102,7 @@ const taskItems = [
         name: '% Complete',
         type: 'number',
         placeholder: '0',
-        required: false,
+        required: true,
     },
 ]
 

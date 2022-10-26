@@ -163,7 +163,7 @@ function createCategoryFormFields(el) {
         return `
     <div class="mb-3">
         <label for="${el.id}" class="form-label">${el.name} ${el.required === true ? `<span class="text-danger fw-bold">*</span>` : ''}</label>
-        <input type=${el.type} class="form-control" id="${el.id}" placeholder="${el.placeholder}" tabindex="0" ${el.required === true ? `required` : ''}>
+        <input type=${el.type} class="form-control" id="${el.id}" placeholder="${el.placeholder ? el.placeholder : ''}" value="${el.value ? el.value : ''}" tabindex="0" ${el.required === true ? `required` : ''} ${el.disabled ? 'disabled' : ''}>
     </div>`
     }
 

@@ -7,6 +7,10 @@ const tasksListArray = [
         status: {
             priority:'High',
             progress:'Not Started',
+        },
+        dates: {
+            startDate:'3/22/22',
+            endDate:'9/28/22',
         }
     },
     {
@@ -17,6 +21,10 @@ const tasksListArray = [
         status: {
             priority:'High',
             progress:'Not Started',
+        },
+        dates: {
+            startDate:'3/22/22',
+            endDate:'9/28/22',
         }
     },
     {
@@ -27,6 +35,10 @@ const tasksListArray = [
         status: {
             priority:'High',
             progress:'Not Started',
+        },
+        dates: {
+            startDate:'3/22/22',
+            endDate:'9/28/22',
         }
     },
     {
@@ -37,6 +49,10 @@ const tasksListArray = [
         status: {
             priority:'High',
             progress:'Not Started',
+        },
+        dates: {
+            startDate:'3/22/22',
+            endDate:'9/28/22',
         }
     },
     {
@@ -47,6 +63,10 @@ const tasksListArray = [
         status: {
             priority:'High',
             progress:'Not Started',
+        },
+        dates: {
+            startDate:'3/22/22',
+            endDate:'9/28/22',
         }
     },
     {
@@ -57,6 +77,10 @@ const tasksListArray = [
         status: {
             priority:'High',
             progress:'Not Started',
+        },
+        dates: {
+            startDate:'3/22/22',
+            endDate:'9/28/22',
         }
     },
     {
@@ -67,6 +91,10 @@ const tasksListArray = [
         status: {
             priority:'Medium',
             progress:'Not Started',
+        },
+        dates: {
+            startDate:'3/22/22',
+            endDate:'9/28/22',
         }
     },
 ]
@@ -82,6 +110,9 @@ function createTasksList(){
     $('.sidepanel-scroll').css('height','calc(100vh - 180px)');//changing scroll height to exclude the tabs, search bar and search views
     $('#card-container').empty();//clear card container
     $('#card-container').append(tasksListArray.map(cardTemplate).join("")+createTaskButton);
-    $('#quick-nav-upload-container').hide();
-    folderLevel = 2;
+    $('#quick-nav-upload-container').hide(); //hiding the quick navigation
+    if($('#tasks-title-container').length === 0){//creating tasks title container with sorting
+        $('#doc-title-container').append(tasksTitleContainer);
+    }
+    folderLevel = 2; //folder level for back
 }

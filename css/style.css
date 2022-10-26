@@ -129,7 +129,7 @@ body {
   background-color: rgba(var(--color-main), 0.2);
 }
 
-#sub-tabs .selection {
+#sub-tabs .selection, #doc-title-container .selection {
   font-size: 0.85rem;
   height: 2rem;
   background-color: transparent;
