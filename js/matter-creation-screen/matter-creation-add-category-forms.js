@@ -188,7 +188,7 @@ function createCategoryContainer(id, name) {
 
     let tempcontainer = createParentCategoryContainer(tempCategory);
     $('#matter-submission-form').append(tempcontainer);
-    formValidation();
+    formValidation(); //initialize form validation for the container
 }
 
 //deleting category container
@@ -198,7 +198,7 @@ function deleteCategoryContainer(id) {
     // }
 }
 
-
+//collapsible icon rotation function
 function rotateCategoryCollapsible(){
     $('#matter-submission-form').on('click', '.category-collapsible', function () {
         if($(this).children('i').hasClass('rotate') === true){

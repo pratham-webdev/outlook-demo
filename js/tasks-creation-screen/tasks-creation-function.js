@@ -9,6 +9,8 @@ function taskCreationScreen() {
     // formValidation();
     buildCategoryModal(false); //creating the category modal fresh
     $(`#doc-title-container`).hide(); //hide doc title container
+    let temptaskscontainer = createParentCategoryContainer(tasksInformation);
+    $('#matter-submission-form').append(temptaskscontainer);
     // $('.sidepanel').append(requiredFieldsToast); //create warning modal for required fields toast 
 }
 
