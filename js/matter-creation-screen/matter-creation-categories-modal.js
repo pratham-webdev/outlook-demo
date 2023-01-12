@@ -140,19 +140,16 @@ const addCategoriesLitebox = `<div class="litebox m-4">
 </div>
 <div class="px-2">
     <div id="add-categories-list">
+    <div class="px-3 py-2">
+            <label for="primary-category-container" class="form-label">Primary Category</label>
+            <select id="primary-category-container" class="form-select primary-category-container" tabindex="0">
+            <option value="1">Disputes</option>     
+            </select>
+        </div>
     </div>
 </div>
 </div>`
 
-//primary category container div template here
-const primaryCategoryContainer = `
-<div class="px-3 py-2">
-        <label for="primary-category-container" class="form-label">Primary Category</label>
-        <select id="primary-category-container" class="form-select primary-category-container" tabindex="0">
-        <option value="1">Disputes</option>     
-        </select>
-</div>
-`
 //create primary categories on click as a dropdown option
 function createPrimaryCategoryOption(id,name){
     let tempOption = `<option id="option-${id}" value="${id}">${name}</option>`;
@@ -180,7 +177,7 @@ function buildCategoryModal(modalKey) {
     $('#add-categories-panel-sub').append(addCategoriesLitebox);
 
     //triggering jquery to initiate dom building
-    $('#add-categories-list').append(primaryCategoryContainer,createCategoryListTemplate(mainCategoriesList));
+    $('#add-categories-list').append(createCategoryListTemplate(mainCategoriesList));
 
     //adding category checkbox event listeners
     $('.category-triggers').on('click', function () {

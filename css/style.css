@@ -452,3 +452,8 @@ body {
   white-space: nowrap;
   overflow-y: scroll;
 }
+
+#add-assignees-list .form-check-label{
+  font-size: .9rem;
+  font-weight: 500;
+}

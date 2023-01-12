@@ -131,15 +131,20 @@ function createCategoryFormFields(el) {
         </select>
         </div>`
     }
-    //else if condition for select dropdown field
+    //else if condition for datalists
     if (el.type === 'datalist') {
         return `
-        <div class="mb-3">
+        <div class="row align-items-end mb-3">
+        <div class="col-10">
         <label for="${el.id}" class="form-label">${el.name} ${el.required === true ? `<span class="text-danger fw-bold">*</span>` : ''}</label>
-        <input class="form-control" list="${el.id}"  placeholder="Type to search...">
+        <input class="form-control ${el.id}" list="${el.id}"  placeholder="Type to search...">
         <datalist id="${el.id}" tabindex="0" ${el.required === true ? `required` : ''}>
          ${el.options.map(createSubFormFields).join('')}
         </select>
+        </div>
+        <div class="col-2">
+        <a id="assignee-search" class="btn btn-sm btn-new me-2" title="Search for Assignees" onclick="toggleLitebox('#add-assignees-panel')"><i class="fs-5 fa-solid fa-search"></i></a>
+        </div>
         </div>`
     }
     //if condition for checkbox
@@ -150,7 +155,7 @@ function createCategoryFormFields(el) {
             <label for="${el.id}" class="form-label mb-0">${el.name} ${el.required === true ? `<span class="text-danger fw-bold">*</span>` : ''}</label>
         </div>`
     }
-    //else condition for regular formfields
+    //else condition for textarea
     else if (el.type === 'textarea') {
         return `
     <div class="mb-3">
@@ -183,7 +188,8 @@ function createCategoryContainer(id, name) {
     let tempCategory = {
         id: `cat-${id}`,
         name: name,
-        items: formItems.slice(Math.floor(Math.random() * formItems.length))
+        items: formItems.slice(Math.floor(Math.random() * formItems.length)),
+        items: formItems
     }
 
     let tempcontainer = createParentCategoryContainer(tempCategory);

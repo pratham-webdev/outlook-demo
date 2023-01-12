@@ -8,6 +8,7 @@ function MatterCreationScreen() {
     $('#matter-submission-form').append(categorySection, categoryGeneralInfoSection, categoryButtonSection); // create container layer items
     formValidation();
     buildCategoryModal(true); //creating the category modal fresh
+    buildAssigneesModal(); // creating assignees list
 }
 
 function formValidation(){
