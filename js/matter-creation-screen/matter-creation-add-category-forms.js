@@ -51,47 +51,7 @@ const formItems = [
         name: 'Assignees',
         type: 'datalist',
         required: false,
-        options: [
-            {
-                val: 'Abraham Perry',
-            },
-            {
-                val: 'Brad Bennigton',
-            },
-            {
-                val: 'Brylee Booker',
-            },
-            {
-                val: 'Castiel Wayne',
-            },
-            {
-                val: 'David Blaine',
-            },
-            {
-                val: 'Damien Haas',
-            },
-            {
-                val: 'Dario Rice',
-            },
-            {
-                val: 'Deacon Armstrong',
-            },
-            {
-                val: 'Jameson Rubio',
-            },
-            {
-                val: 'Jenny Mcguire',
-            },
-            {
-                val: 'Leia Henderson',
-            },
-            {
-                val: 'Keira Morales',
-            },
-            {
-                val: 'Pedro Cox',
-            },
-        ]
+        options: assigneesList
     },
     {
         id: 'cm-notes',
@@ -143,7 +103,7 @@ function createCategoryFormFields(el) {
         </select>
         </div>
         <div class="col-2">
-        <a id="assignee-search" class="btn btn-sm btn-new me-2" title="Search for Assignees" onclick="toggleLitebox('#add-assignees-panel')"><i class="fs-5 fa-solid fa-search"></i></a>
+        <a id="assignee-search" class="btn btn-sm btn-new me-2" title="Search for Assignees"><i class="fs-5 fa-solid fa-search"></i></a>
         </div>
         </div>`
     }
@@ -194,6 +154,24 @@ function createCategoryContainer(id, name) {
 
     let tempcontainer = createParentCategoryContainer(tempCategory);
     $('#matter-submission-form').append(tempcontainer);
+    $('#matter-submission-form').on('click', `#assignee-search`,function(){
+        toggleLitebox('#add-assignees-panel');
+        let searchVal = $('.cm-contacts').val();
+        let newList = assigneesList.filter((el)=>{
+            let compare = el.val.toLowerCase();
+            if(compare.includes(searchVal.toLowerCase())){
+                return el;
+            }
+        });
+        if(searchVal != ''){
+            $('#add-assignees-list').empty();
+            $('#add-assignees-list').append(newList.map(createAssigneeList).join(""));
+        }
+        else{
+            $('#add-assignees-list').empty();
+            $('#add-assignees-list').append(assigneesList.map(createAssigneeList).join(""));
+        }
+    });
     formValidation(); //initialize form validation for the container
 }
 
@@ -202,6 +180,7 @@ function deleteCategoryContainer(id) {
     // if ($('#card-container').children().length > 2) {
     $('#matter-submission-form').children().remove("#cat-" + id);
     // }
+    $('#matter-submission-form').off('click', `#assignee-search`);
 }
 
 //collapsible icon rotation function

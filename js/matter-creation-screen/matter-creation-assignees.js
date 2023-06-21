@@ -1,42 +1,42 @@
 const assigneesList= [
     {
-        val: 'Abraham Perry',
+        val: 'Ava, Chaney',
     },
     {
-        val: 'Brad Bennigton',
+        val: 'Black, Mckee',
     },
     {
-        val: 'Brylee Booker',
+        val: 'Chang , Jasmine',
     },
     {
-        val: 'Castiel Wayne',
+        val: 'Ellis, Newton',
     },
     {
-        val: 'David Blaine',
+        val: 'Debbie, Rojas',
     },
     {
-        val: 'Damien Haas',
+        val: 'Doe, Jane',
     },
     {
-        val: 'Dario Rice',
+        val: 'Goldman, Jack',
     },
     {
-        val: 'Deacon Armstrong',
+        val: 'Jade, Casey',
     },
     {
-        val: 'Jameson Rubio',
+        val: 'Marks, Cardenas',
     },
     {
-        val: 'Jenny Mcguire',
+        val: 'Matilda, Estes',
     },
     {
-        val: 'Leia Henderson',
+        val: 'Michele, Watkins',
     },
     {
-        val: 'Keira Morales',
+        val: 'Ruiz, Page',
     },
     {
-        val: 'Pedro Cox',
+        val: 'Wiley, Sosa',
     },
 ]
 
@@ -48,12 +48,13 @@ const addAssigneesLitebox = `<div class="litebox m-4">
     <button class="btn btn-sm btn-new" onclick="toggleLitebox('#add-assignees-panel')"><i class="fs-5 fa-solid fa-xmark"></i></button>
 </div>
 <div class="px-2">
-    <div id="add-assignees-list" class="px-3 pb-3">
-    <div class="py-2 pb-2">
+<div id="assignee-litebox-search" class="py-2 pb-2">
         <label for="matterAssignees" class="form-label">Search for Assignees</label>
         <input type="search" placeholder="Assignee name" class="form-control" id="matterAssignees" aria-describedby="matterAssignees">
         </div>
     </div>
+    <div id="add-assignees-list" class="px-3 pb-3">
+    
 </div>
 </div>`
 
@@ -75,7 +76,7 @@ function buildAssigneesModal(key) {
     $('#add-assignees-panel-sub').append(addAssigneesLitebox);
 
     //triggering jquery to initiate dom building
-    $('#add-assignees-list').append(assigneesList.map(createAssigneeList).join(""));
+    // $('#add-assignees-list').append(assigneesList.map(createAssigneeList).join(""));
 
     //adding category checkbox event listeners
     $('#add-assignees-list').on('click', '.form-check-input', function () {
